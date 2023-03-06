@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML - Aula 3 - Hyperlink&Imagens</title>
+</head>
+<body>
+    <header>
+        <h1>Sobre Hyperlinks e Imagens</h1>
+        <p>
+            Embora pareção diferentes, hyperlinks é tópico que abrange múltiplas interações com outras tags, além de ter sua própria.
+            <br/>Por isso, ela será estudada junto a tag (img) usada para referência arquivos de imagens interna ou externamente.
+        </p>
+        <hr/>
+    </header>
+    <main>
+        <!--
+            Toda tag <a> geralmente está acompanhada pelo atributo 'href'. Ele é quem define o destino do link!
+            A Tag <a> possui uma série de atributos específicos:
+            - 'title' - O atributo do 'title' especifica informações extras sobre um elemento. As informações são mais frequentemente mostradas como um texto da dica de ferramenta quando o mouse se move sobre o elemento.
+            - 'target' - O atributo de 'target' especifica onde abrir o documento vinculado. Por exemplo: na própria aba, em outra aba, janela separada.
+        -->
+        <h2><strong>Tópico: Hyperlink</strong></h2>
+        <p>
+            Os links HTML são hiperlinks, descritos pela tag (a). Você pode clicar em um link e pular para outro documento.
+            <br/>Casualmente conhecido quando você move o mouse sobre um link, a seta do mouse se transforma em uma pequena mão.
+            <br/>Lembrando que um link pode ser qualquer coisa, não limitando-se a somente texto.
+        </p>
+        <p>Um exemplo de somente o link seria: </p>
+        <a href="">Um link vazio</a>
+        <p>
+            Existe a distinção entre links internos e externos.
+            <ul>
+                <li>Um link interno é referênciado pelo posicionado dos arquivos a partir do arquivo .html</li>
+                <li>Um link externo é referênciado por uma URL ou endereço IP (ou até mesmo um arquivo em servidor)</li>
+            </ul>
+        </p>
+        <p>Um exemplo link seria: </p>
+        <a href="https://www.google.com/">Um link para o Google!</a>
+        <a href="https://www.google.com/">
+            <div style="width: 200px; height: 200px; background-color: aqua; text-decoration: none;">
+                Isso é um link diferenciado.
+            </div>
+        </a>
+        <p>
+            Além da distinção de links, há diferentes métodos de referência um link:
+            <ul>
+                <li>Absoluto - Um link global, o qual é externo a página (ou arquivo) a página a executar.</li>
+                <li>Relative - Um link local, o qual referência a uma página (ou arquivo) dentro do local referente da página a executar.</li>
+            </ul>
+        </p>
+        <h4>Absolute URLs</h4>
+        <p><a href="https://www.w3.org/" target="_blank">W3C</a></p>
+        <p><a href="https://www.google.com/" target="_top">Google</a></p>
+
+        <h4>Relative URLs</h4>
+        <p><a href="Aula_1_HeadersEParagrafos.html" title="DICA: Será direcionado para Aula 1">Link para Aula 1</a></p>
+        <p><a href="Aula_0_BaseDeTudo.html" title="DICA: Será direcionado para Aula 0">Link para Aula 0</a></p>
+        <hr/>
+        <!--
+            A tag <img/> é uma tag que se fecha, assim como <br/> e <hr/>.
+            Embora não usados com frequência, a importação de imagens possuem alternativas:
+            - <img> Define uma imagem
+            - <map> Define um mapa de imagem
+            - <area> Define uma área clicável dentro de um mapa de imagem
+            - <picture> Define um contêiner para vários recursos de imagem
+        -->
+        <h2><strong>Tópico: Imagens</strong></h2>
+        <p>
+            Imagens são referênciados pela tag (img) e possuem alguns atributos específicos dele.
+            <br/>A formatação de imagens em html não existe como em texto. Toda eslização é feita por CSS ou "style".
+            <br/>A tag <img> tem dois atributos obrigatórios:
+            <li>src - Especifica o caminho para a imagem</li>
+            <li>alt - Especifica um texto alternativo para a imagem</li>
+        </p>
+        <img src="https://pbs.twimg.com/profile_images/1520217833367646209/beABTF7P_400x400.jpg" alt="Foto de Perfil do Twitter"/>
+        <p>
+            Existe outro métodos além do uso da tag (img), eu vou destacar o uso de (picture):
+            <br/>Diferente de (img), a tag (picture) é utilizada para atribuir diferentes imagens e exibilas de acordo onde a mídia é exibida.
+            <br/>O elemento (picture) contém um ou mais elementos (source), cada um referindo-se a diferentes imagens por meio do atributo srcset. Desta forma, o navegador pode escolher a imagem que melhor se adapta à visualização e/ou dispositivo atual.
+            <br/>Cada elemento (source) possui um atributo media que define quando a imagem é a mais adequada.
+        </p>
+        <picture>
+            <source media="(min-width: 650px)" srcset="http://sachspolicy.com/wp-content/uploads/2021/05/consulting-icon-toon-whitebg-650px.png">
+            <source media="(min-width: 465px)" srcset="https://blogs.bl.uk/.a/6a00d8341c464853ef022ad3becbff200b-500wi">
+            <img src="https://pbs.twimg.com/profile_images/1520217833367646209/beABTF7P_400x400.jpg">
+        </picture>
+    </main>
+    <footer>
+    </footer>
+</body>
+</html>

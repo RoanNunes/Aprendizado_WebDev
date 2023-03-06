@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt">
+    
+<head>
+    <meta charset="UTF-8">
+    <title>HTML - Aula 4 - Metadata&Import</title>
+    <!--
+        O elemento <link> define o relacionamento entre o documento atual e um recurso externo, seja .css, .js, .ts, etc.
+        O elemento <meta> normalmente é usado para especificar o conjunto de caracteres, a descrição da página, as palavras-chave, o autor do documento e as configurações da viewport.
+        Destaque-se esses atributos:
+        - charset - Define o conjunto de caracteres usado;
+        - keywords - Define keywords for search engines;
+        - description - Define uma descrição prévia da sua página da web;
+        - author - Define o autor da página;
+        - http-equiv - Define o que fazer com a página, através de 'content' define o tempo em segs;
+        - viewport - Na prática, Configura a janela de visualização para que seu site tenha uma boa aparência em todos os dispositivos;
+    -->
+    <link rel="stylesheet" href="arquivo.css"/>
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="description" content="Free Web tutorials">
+    <meta name="author" content="John Doe">
+    <meta http-equiv="refresh" content="30">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="https://www.w3schools.com/" target="_blank">
+</head>
+<body>
+    <header>
+        <h1>Sobre Metadata e Imports</h1>
+        <p>
+            "Metadados, ou Metainformação, são dados sobre outros dados. Um item de um metadado pode dizer do que se trata aquele dado, geralmente uma informação inteligível por um computador. 
+            Os metadados facilitam o entendimento dos relacionamentos e a utilidade das informações dos dados."
+            <br/>- Wikipedia 2023
+        </p>
+        <hr/>
+    </header>
+    <main>
+        <h2>Tópico: Metadados</h2>
+        <p>
+            Os metadados em maioria ficam posicionados no (head) do arquivo .html.
+            <br/> Por isso, veja o código fonte documento para melhor entendimento.
+            <br/> Segue a lista de tags mais usadas:
+        </p>
+        <ul>
+            <li>tag (head) Define informações sobre o documento</li>
+            <li>tag (title) Define o título de um documento</li>
+            <li>tag (base) Define um endereço padrão ou um destino padrão para todos os links em uma página</li>
+            <li>tag (link) Define a relação entre um documento e um recurso externo</li>
+            <li>tag (meta) Define metadados sobre um documento HTML</li>
+            <li>tag (script) Define um script do lado do cliente</li>
+            <li>tag (style) Define informações de estilo para um documento</li>
+        </ul>
+    </main>
+    <footer>
+    </footer>
+</body>
+</html>

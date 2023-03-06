@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML - Aula 1 - Headers&Paragraphs</title>
+</head>
+<body>
+    <!--
+        'Headers' (<hX>) seriam o titulos da página, o principal assunto, a hierarquia de tópicos.
+        Os motores de pesquisa (Google, Bing, DuckDuckgo, ...) usam os cabeçalhos para indexar a estrutura e o conteúdo de suas páginas da web.
+        A definição de prioridade de contéudo facilita a identificação e recomendação ao usuários os quais buscam por tal informação.
+        Os cabeçalhos <h1> devem ser usados para os cabeçalhos principais, seguidos pelos cabeçalhos <h2>, depois os menos importantes <h3> e assim por diante.
+        [ATENÇÃO] Use títulos (<hX></hX>) HTML apenas para títulos. Não use títulos para tornar o texto ou GRANDE, ou em negrito, ou estilizar ele de qualquer forma.
+    -->
+    <h1> Isso é um Header !</h1>
+    <h2> E esse é outro...</h2>
+    <h3> E outro...</h3>
+    <h4> E outro...</h4>
+    <h5> E outro...</h5>
+    <h6> E outro...</h6>
+    <!--
+        'Paragraph' (<p>) seriam os parágrafos, usados para descrever um tópico/assunto abordado, geralmente por um header.
+        Um parágrafo sempre começa em uma nova linha e os navegadores adicionam automaticamente algum espaço em branco (uma margem) antes e depois de um parágrafo.
+        O próprio navegador já possui um tratamento específico a esta tag, como a remoção de espaços excessivos.
+        Caso queira estilizar a página HTML, deverá usar outro meio para isso (fururamente falaremos sobre o CSS ou atributo "style").
+    -->
+    <p>
+        Isso é um paragraph, ou parágrafo. Usado geralmente para descrever algo!
+    </p>
+    <p>
+        Isso         é um paragraph, ou     parágrafo. Usado geralmente           para descrever       algo! Olha o código fonte!
+    </p>
+    <!-- 
+        Isso é um "<hr/>", uma linha horizontal dinâmica que "divide" visualmente a página.
+        A tag <hr> define uma quebra temática em uma página HTML e geralmente é exibida como uma régua horizontal.
+        Em termos de metadados, o elemento <hr> é usado para separar o conteúdo (ou definir uma alteração) em uma página HTML:
+     -->
+     <hr/>
+     <h3>Um outro lugar!</h3>
+     <p>
+        É como se ouvesse outro assunto aqui, talvez semelhante... 
+        talvez não.
+    </p>
+    <!-- 
+        Isso é um "<br/>", que indica um quebra de linha.
+        Em metadados, use <br> se quiser para quebra de linha (uma nova linha) sem iniciar um novo parágrafo:
+     -->
+    <p>
+        É como se ouvesse outro assunto aqui, talvez semelhante... <br/>talvez não.
+    </p>
+    <p>
+        É como se ouvesse outro assunto aqui, talvez semelhante... 
+        <br/>talvez não.
+    </p>
+    <hr/>
+    <!--
+        Lembra sobre modificar o visual?
+        Para tudo, há uma tag, classe, id, etc. Sempre pesquise se já existe um método oficial!
+    -->
+    <h3>O Dilema do poema!</h3>
+    <p>
+        O que fazer com textos que são formatados de jeitos específicos?
+        Não oficialmente, há X maneiras de fazer isso, no entanto há uma maneira oficial.
+    </p>
+    <!--
+        'Preformatted Text' (<pre>) seriam os parágrafos os quais iram replicar exatamente a formatação escrita no código fonte.
+        O texto dentro de um elemento <pre> é exibido em uma fonte de largura fixa (geralmente Courier) e preserva espaços e quebras de linha.
+        [ATENÇÃO] Ele formata EXATAMENTE como no código fonte, incluindo espaçamento, 'encadamento' e etc.
+        [ATENÇÃO] Sempre há um caso para toda tag, dito isto, saiba diferênciar quando usar um <p> e um <pre>.
+        É uma boa prática usar o <p> e modificar ele através de outros meios por já haver um tratamento específico pelo navegador.
+    -->
+    <pre>
+        Rosas são vermelhas
+
+        O Céu é azul
+
+        Mas qual é o misterio do tofu?
+
+        - Roan Nunes 2023.
+    </pre>
+    <hr/>
+    <!--
+        Há uma série de tags em HTML as quais podem definir contexto a palavras, e contexto para um algorítimo é um metadado.
+        Algumas tags apenas formatam texto, outras sinalizam, outras formatam e sinalizão.
+        [ATENÇÃO] Aprenda o contexto de cada uma e saiba como utiliza-las, quando usa-las, onde usa-las.
+    -->
+    <h3><mark>Formatação</mark> de TEXTO!</h3>
+    <p>
+        O que fazer com textos que são formatados de jeitos específicos?
+        Eu já disse isso antes, mas agora há importância para os metadados.
+        Podem ser usadas em meio a qualquer tag, esteja ciente disso.
+    </p>
+    <pre>
+        <b> - Bold text </b>
+        <strong> - Important text </strong>
+        <i> - Italic text </i>
+        <em> - Emphasized text </em>
+        <mark> - Marked text </mark>
+        <small> - Smaller text </small>
+        <del> - Deleted text </del>
+        <ins> - Inserted text </ins>
+        <sub> - Subscript text </sub>
+        <sup> - Superscript text </sup>
+    </pre>
+    <p>
+        <b> - Bold text </b>
+        <strong> - Important text </strong>
+        <i> - Italic text </i>
+        <em> - Emphasized text </em>
+        <mark> - Marked text </mark>
+        <small> - Smaller text </small>
+        <del> - Deleted text </del>
+        <ins> - Inserted text </ins>
+        <sub> - Subscript text </sub>
+        <sup> - Superscript text </sup>
+    </p>
+    <p>
+        Text <b> - Bold text -</b><br/>
+        O elemento HTML (b) define o texto em negrito, sem nenhuma importância extra.
+        <br/>
+        Text <strong> - Important text -</strong><br/>
+        O elemento HTML (strong) define o texto com forte importância. O conteúdo interno geralmente é exibido em negrito.
+        <br/>
+        Text <i> - Italic text -</i><br/>
+        O elemento HTML (i) define uma parte do texto em uma voz ou humor alternativo. O conteúdo interno geralmente é exibido em itálico.
+        A tag (i) é frequentemente usada para indicar um termo técnico, uma frase de outro idioma, um pensamento, um nome de navio, etc.
+        <br/>
+        Text <em> - Emphasized text -</em><br/>
+        O elemento HTML (em) define o texto enfatizado. O conteúdo interno é normalmente exibido em itálico.
+        Um leitor de tela pronunciará as palavras em (em) com ênfase, usando tonicidade verbal.
+        <br/>
+        Text <mark> - Marked text -</mark><br/>
+        O elemento HTML (mark) define o texto que deve ser marcado ou destacado.
+        <br/>
+        Text <small> - Smaller text -</small><br/>
+        O elemento HTML (small) define um texto menor.
+        <br/>
+        Text <del> - Deleted text -</del><br/>
+        O elemento HTML (del) define o texto que foi excluído de um documento. Os navegadores geralmente traçam uma linha através do texto excluído.
+        <br/>
+        Text <ins> - Inserted text -</ins><br/>
+        O elemento HTML (ins) define um texto que foi inserido em um documento. Os navegadores geralmente sublinham o texto inserido:
+        <br/>
+        Text <sub> - Subscript text -</sub><br/>
+        O elemento HTML (sub) define o texto subscrito. O texto subscrito aparece meio caractere abaixo da linha normal e, às vezes, é renderizado em uma fonte menor.
+        O texto subscrito pode ser usado para fórmulas químicas, como H2O.
+        <br/>
+        Text <sup> - Superscript text -</sup><br/>
+        O elemento HTML <sup> define o texto sobrescrito. O texto sobrescrito aparece meio caractere acima da linha normal e, às vezes, é renderizado em uma fonte menor. 
+        O texto sobrescrito pode ser usado para notas de rodapé, como WWW[1]:
+        <br/>
+    </p>
+    <hr/>
+    <h6>Fim da aula 1...</h6>
+</body>
+</html>

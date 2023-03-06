@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML - Aula 2 - Lists&Tables</title>
+</head>
+<body>
+    <h1>Sobre Listas e Tabelas!</h1>
+    <p>
+        Oficialmente existem tags para criação de listas <em>não ordenadas</em>, listas <em>ordenadas</em>, listas <em>descritivas</em> e tabelas.
+        <br/>É possivel a criação de listas dentro de listas, o navegador já realiza esse tratamento, isto é, esse encadeamento de listas.
+    </p>
+    <hr/>
+    <h2><strong>Tópico: Listas</strong></h2>
+    <p>
+        Há uma série de tags responsabilizadas para criação de listas e cada uma tem um objetivo.
+        Entenda que há a tag de lista; tag de item de lista; tag de descrição de lista.
+    </p>
+    <pre>
+        tag (ul) Define uma lista não ordenada
+        tag (ol) Define uma lista ordenada
+        tag (li) Define um item de lista
+        tag (dl) Define uma lista de descrição
+        tag (dt) Define um termo em uma lista de descrição
+        tag (dd) Descreve o termo em uma lista de descrição
+    </pre>
+    <hr/>
+    <h3>Lista não ordenadas!</h3>
+    <p>Usamos principalmente (ul) e (li)</p>
+    <ul>
+        Texto corrido na lista.
+        <li>Item da lista</li>
+        <li>Item da lista</li>
+        <li>Item da lista</li>
+        <ul>
+            Texto corrido na sublista.
+            <li>Item da lista</li>
+            <li>Item da lista</li>
+            <li>Item da lista</li>
+            <ul>
+                Texto corrido na subsublista.
+                <li>Item da lista</li><li>Item da lista</li><li>Item da lista</li>
+            </ul>
+        </ul>
+        <ul>
+            Texto corrido na sublista.
+            <li>Item da lista</li>
+            <li>Item da lista</li>
+            <li>Item da lista</li>
+        </ul>
+    </ul>
+    <br/>
+    <h3>Lista ordenadas!</h3>
+    <p>Usamos principalmente (ol) e (li)</p>
+    <ol>
+        Texto corrido na lista.
+        <li>Item da lista</li>
+        <li>Item da lista</li>
+        <li>Item da lista</li>
+        <ol>
+            Texto corrido na sublista.
+            <li>Item da lista</li>
+            <li>Item da lista</li>
+            <li>Item da lista</li>
+            <ol>
+                Texto corrido na subsublista.
+                <li>Item da lista</li><li>Item da lista</li><li>Item da lista</li>
+            </ol>
+        </ol>
+        <ol>
+            Texto corrido na sublista.
+            <li>Item da lista</li>
+            <li>Item da lista</li>
+            <li>Item da lista</li>
+        </ol>
+    </ol>
+    <h3>Lista descritivas!</h3>
+    <p>Usamos principalmente (ol) e (li)</p>
+    <dl>
+        Texto corrido na lista.
+        <dt>Item da lista</dt>
+        <dd>Descrição do Item da lista</dd>
+        <dt>Item da lista</dd>
+        <dt>Item da lista</dt>
+        <dd>Descrição do Item da lista</dd>
+        <dt>Item da lista</dd>
+    </dl>
+    <h3>Lista Misturadas!</h3>
+    <p>Podemos misturars as múltiplos de listas em uma lista única, mas esteja ciente de qual tag funciona aonde.</p>
+    <ol>
+        Texto corrido na lista.
+        <li>Item da lista</li>
+        <li>Item da lista</li>
+        <li>Item da lista</li>
+        <ul>
+            Texto corrido na sublista.
+            <li>Item da lista</li>
+            <li>Item da lista</li>
+            <li>Item da lista</li>
+            <ul>
+                Texto corrido na subsublista.
+                <li>Item da lista</li><li>Item da lista</li><li>Item da lista</li>
+            </ul>
+        </ul>
+        <dl>
+            Texto corrido na lista.
+            <dt>Item da lista</dt>
+            <dd>Descrição do Item da lista</dd>
+            <dt>Item da lista</dd>
+            <dt>Item da lista</dt>
+            <dd>Descrição do Item da lista</dd>
+            <dt>Item da lista</dd>
+        </dl>
+        <li>Item da lista</li>
+        <li>Item da lista</li>
+        <dt>Item da lista</dt>
+        <dd>Descrição do Item da lista</dd>
+        <dt>Item da lista</dd>
+    </ol>
+    <hr/>
+    <!-- 
+        A crição de tabelas possui uma nomeclatura bem específica e não é tão flexível seu método de criação e manipulação.
+        Há X maneiras de estrururar uma tabela e o posicionamento das tags, por isso fique ciente que depende de quem cria ou objetivo da tabela para ser criada de tal forma.
+        Também há atributos HTML específicos dele como:
+        'colspan' - faz uma célula assumir a posição, ou sobrepor, celulas de múltiplas colunas (horizontal);
+        'rowspan' -  faz uma célula assumir a posição, ou sobrepor, celulas de múltiplas linhas (vertical);
+    -->
+    <h2><strong>Tópico: Tabelas</strong></h2>
+    <p>A criação de tabelas consiste nas seguintes etapas respectivamente: declaração da tabela, declaração de linha de tabela, declaração de célula da tabela.</p>
+    <pre>
+        tag (tabela) define uma tabela.
+        tag (th) define uma célula de cabeçalho em uma mesa.
+        tag (tr) define uma linha em uma tabela.
+        tag (Td) define uma célula em uma tabela.
+        tag (geption) define uma legenda de tabela.
+        tag (Colgroup) Especifica um grupo de uma ou mais colunas em uma tabela para formatação.
+        tag (Col) Especifica as propriedades da coluna para cada coluna dentro de um elemento (Colgroup).
+        tag (Thead) agrupa o conteúdo do cabeçalho em uma tabela.
+        tag (Tbody) agrupa o conteúdo do corpo em uma tabela.
+        tag (tfoot) agrupa o conteúdo do rodapé em uma tabela.
+    </pre>
+    <p>Em sua formatação mais <strong>básica</strong>, consiste em: table (table), tablerow (tr), table cell (ou data) (td)</p>
+    <table>
+        <tr>
+          <td>Company</td>
+          <td>Contact</td>
+          <td>Country</td>
+        </tr>
+        <tr>
+          <td>Alfreds Futterkiste</td>
+          <td>Maria Anders</td>
+          <td>Germany</td>
+        </tr>
+        <tr>
+          <td>Centro comercial Moctezuma</td>
+          <td>Francisco Chang</td>
+          <td>Mexico</td>
+        </tr>
+      </table>
+      <br/>
+      <p>Em sua formatação mais <strong>intermediarias</strong>, consiste em: table (table), table row (tr), table header (th), table row (tr), table cell (ou data) (td)</p>
+      <table>
+        <tr>
+          <th>Company</th>
+          <th>Contact</th>
+          <th>Country</th>
+        </tr>
+        <tr>
+          <td>Alfreds Futterkiste</td>
+          <td>Maria Anders</td>
+          <td>Germany</td>
+        </tr>
+        <tr>
+          <td>Centro comercial Moctezuma</td>
+          <td>Francisco Chang</td>
+          <td>Mexico</td>
+        </tr>
+      </table>
+      <br/>
+      <p>Em sua formatação mais <strong>complexas</strong>, consiste na divisão em seções a tabela, determinação de colunas e outros</p>
+      <table>
+        <colgroup>
+            <col span="1" style="background-color: chartreuse;">
+        </colgroup>
+        <thead>
+            <th>Company</th>
+            <th>Contact</th>
+            <th>Country</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Alfreds Futterkiste</td>
+                <td>Maria Anders</td>
+                <td>Germany</td>
+            </tr>
+            <tr>
+                <td>Freds Futter</td>
+                <td>Mia Aners</td>
+                <td>China</td>
+            </tr>
+            <tr>
+                <td>Alf Kiste</td>
+                <td>Mar Ders</td>
+                <td>USA</td>
+            </tr>
+            <tr>
+                <td>Alfreds Futterkiste</td>
+                <td rowspan="3">Maria Anders</td>
+                <td>Germany</td>
+            </tr>
+            <tr>
+                <td>Freds Futter</td>
+                <td>Mia Aners</td>
+                <td>China</td>
+            </tr>
+            <tr>
+                <td colspan="3">Alf Kiste</td>
+                <td>Mar Ders</td>
+                <td>USA</td>
+                <td>Alf Kiste</td>
+                <td>Mar Ders</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>Total companias: XX</td>
+                <td>Total contatos: XX</td>
+                <td>Total países: XX</td>
+            </tr>
+        </tfoot>
+      </table>
+      <br/>
+</body>
+</html>
