@@ -1,0 +1,122 @@
+/*--- ROOT ---*/
+/*--- TAGs ---*/
+body{
+    font-size: 1.2em;
+    width: 75%;
+    margin: 0% auto;
+}
+article{
+    border-width: 0.2em;
+    border-style: solid;
+    border-color: black;
+}
+
+/*--- CLASSs ---*/
+.main-Grid-Columns{
+    display: grid;
+    grid-template-columns: 40% 40% 20%;
+}
+.main-Grid-Rows{
+    display: grid;
+    grid-template-rows:40% 40% 20%;
+}
+.main-Grid-Area{
+    display: grid;
+    grid-template-areas: 40% 40% 20%;
+}
+
+.container-Content{
+    width:100px;
+    height:100px;
+    background-color: darkolivegreen;
+}
+.cc-Margin{
+    margin: 100px;
+}
+.cc-Padding{
+    padding: 100px;
+}
+.cc-Border{
+    border: 100px solid pink;
+}
+
+.main-Grid-Columns-Mod-1{
+    grid-template-columns: 20% auto 50% 75px;
+    grid-gap: 10px 35px;
+}
+.main-Grid-Columns-Mod-2{
+    grid-template-columns: 10% auto auto 25em 5em;
+    grid-gap: 35px 10px;
+    grid-auto-flow:column;
+}
+.main-Grid-Columns-Mod-3{
+    grid-template-columns: 10% auto auto auto auto;
+    grid-gap: 15px 15px;
+}
+
+.grid-Element-1{
+    grid-column: 1 / 4;
+}
+.grid-Element-2{
+    grid-row: 2 / 5;
+}
+.grid-Element-3{
+    grid-column: 4 / 6;
+    grid-row: 2 / 5;
+}
+.grid-Element-4{
+    grid-area: 6 / 3 / 12 / 5;
+}
+
+.main-Grid-Areas{
+    display: grid;
+    grid-template-areas:
+        'header header logo . .'
+        'cnt-principal cnt-principal cnt-principal cnt-principal propaganda'
+        'footer footer footer footer propaganda';
+    grid-gap: 15px 15px;
+    background-color: aqua;
+}
+
+.main-Grid-Areas-Mod-1{
+    display: grid;
+    grid-template-areas:
+        '. logo header header'
+        'propaganda cnt-principal cnt-principal .'
+        'propaganda cnt-principal cnt-principal .'
+        'propaganda cnt-principal cnt-principal .'
+        '. footer footer .';
+    grid-gap: 15px 15px;
+    background-color: rgb(13, 177, 87);
+}
+.main-Grid-Areas-Mod-1 > article{
+    padding: 25px;
+}
+
+.grid-item-Header{
+    grid-area: header;
+    background-color: darkgoldenrod;
+}
+.grid-item-Logo{
+    grid-area: logo;
+    background-color: rgb(184, 11, 175);
+}
+.grid-item-Conteudo-Principal{
+    grid-area: cnt-principal;
+    background-color: rgb(184, 11, 11);
+}
+.grid-item-Container-Propaganda{
+    grid-area: propaganda;
+    background-color: rgb(86, 11, 184);
+}
+.grid-item-Footer{
+    grid-area: footer;
+    background-color: rgb(60, 184, 11);
+}
+/*--- IDs ---*/
+
+/*--- PSEUDO-CLASSs ---*/
+
+/*--- PSEUDO-ELEMENTs ---*/
+
+/*--- MEDIA ---*/

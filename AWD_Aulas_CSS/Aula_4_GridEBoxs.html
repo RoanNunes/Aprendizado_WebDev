@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Aula_4_GridEBoxs.css"/>
+    <title>CSS - Aula 4 - Grid&Boxs</title>
+</head>
+<body>
+    <header>
+        <h1>Grid e Boxs</h1>
+        <p>
+            "Display: grid" é uma propriedade a qual requer planejamento antes de seu uso.
+            <br/>Esta propriedade disponibiliza propriedade específicas tanto para o próprio container, quanto os elementos dentro dele, podendo alterar seu comportamento, relação com outros elementos, posicionamento na hieraquia.
+            <br/>Ao ver o código fonte desta página, irá notar a diferença de como é estruturado o HTML em comparação aos modelos anteriores.
+            <br/>Segue a lista de propriedade específicas do <strong>container grid</strong>:
+            <ul>
+                <li>column-gap - Especifica o intervalo entre as colunas
+                <li>gap - Uma propriedade abreviada para as propriedades de intervalo entre linhas e intervalos entre colunas</li>
+                <li>grid - Uma propriedade abreviada para linhas de modelo de grade, colunas de modelo de grade, áreas de modelo de grade, linhas automáticas de grade, colunas automáticas de grade e propriedades de fluxo automático de grade</li>
+                <li>grid-area - Especifica um nome para o item da grade ou esta propriedade é uma propriedade abreviada para as propriedades grid-row-start, grid-column-start, grid-row-end e grid-column-end</li>
+                <li>grid-auto-columns - Especifica um tamanho de coluna padrão</li>
+                <li>grid-auto-flow - Especifica como os itens colocados automaticamente são inseridos na grade</li>
+                <li>grid-auto-rows - Especifica um tamanho de linha padrão</li>
+                <li>grid-column - Uma propriedade abreviada para as propriedades grid-column-start e grid-column-end </li>
+                <li>grid-column-end - Especifica onde terminar o item da grade</li>
+                <li>grid-column-gap - Especifica o tamanho do espaço entre as colunas</li>
+                <li>grid-column-start - Especifica onde iniciar o item da grade</li>
+                <li>grid-gap - Uma propriedade abreviada para as propriedades grid-row-gap e grid-column-gap</li>
+                <li>grid-row - Uma propriedade abreviada para as propriedades grid-row-start e grid-row-end</li>
+                <li>grid-row-end - Especifica onde terminar o item da grade</li>
+                <li>grid-row-gap - Especifica o tamanho do espaço entre as linhas</li>
+                <li>grid-row-start - Especifica onde iniciar o item da grade</li>
+                <li>grid-template - Uma propriedade abreviada para as propriedades grid-template-rows, grid-template-columns e grid-areas</li>
+                <li>grid-template-areas - Especifica como exibir colunas e linhas, usando itens de grade nomeados</li>
+                <li>grid-template-columns - Especifica o tamanho das colunas e quantas colunas em um layout de grade</li>
+                <li>grid-template-rows - Especifica o tamanho das linhas em um layout de grade</li>
+                <li>row-gap - espaço entre linhas</li>
+            </ul>   
+        </p>
+    </header>
+    <hr/>
+    <!-- 
+        Tudo se dá inicio com: 
+        - display: grid; (definir o display)
+        - grid-template-columns: auto 1.2em 20px 30%; (Determinar o tamanho de cada coluna. Por haver 4 (quatro) valores, serão quatro colunas)
+        OU
+        - display: grid; (definir o display)
+        - grid-template-rows: auto 1.2em 20px 30%;  (Determinar o tamanho de cada linha. Por haver 4 (quatro) valores, serão quatro linha)
+        OU
+        - display: grid; (definir o display)
+        - grid-template-areas: area1 area1 ...; (Determinar quem fica em cada espaço.(É mais complexo, vamos com calma.))
+    -->
+    <main>
+        <!--
+            Perceba que em grid-template-columns, todos os elementos inseridos respeitam e demonstração essa estrutura.
+        -->
+        <div class="main-Grid-Columns">
+            <article>1</article>
+            <article>2</article>
+            <article>3</article>
+            <article>4</article>
+            <article>5</article>
+            <article>
+                <p>
+                    6 - Não importa quantos elementos eu acrescento no container Grid, ele irá absorver e tratar como especificado.
+                </p>
+            </article>
+            <article>7</article>
+            <article>8</article>
+            <article>9</article>
+            <article>10</article>
+        </div>
+        <hr/>
+        <div style="height: 100px;">
+            <h4>Aqui existe uma Div para espaçamento. Se não, as Grids se sobrepõem.</h4>
+            <h4>!!!main-Grid-Rows quebra o fluxo padrão de uma página!!!</h4>
+        </div>
+        <!--
+            Perceba que em grid-template-rows, todos os elementos inseridos respeitam a regra, no entanto apenas as três primeiras linhas demonstram a regra.
+            Isso acontece pois ao especificar valores nessa regra, determinamos os valores aboslutos. Há formas de burlar isso.
+        -->
+        <div class="main-Grid-Rows">
+            <article>1</article>
+            <article>2</article>
+            <article>3</article>
+            <article>4</article>
+            <article>5</article>
+            <article>
+                <p>
+                    6 - Não importa quantos elementos eu acrescento no container Grid, ele irá absorver e tratar como especificado.
+                </p>
+            </article>
+            <article>7</article>
+            <article>8</article>
+            <article>9</article>
+            <article>10</article>
+        </div>
+        <!--
+            Por algum motivo, grid-template-rows não respeita o posicionamentos dos elementos abaixo dele.
+            Houve necessidade de haver um tratamento aqui.
+        -->
+        <div style="margin-top: 300px; height: 100px;">
+            <h4>Aqui existe uma Div para espaçamento. Se não, as Grids se sobrepõem.</h4>
+            <h4>!!!main-Grid-Rows quebra o fluxo padrão de uma página!!!</h4>
+        </div>
+        <hr/>
+        <!--
+            Perceba que em grid-template-areas, não colocamos valores tradicionais, caso feito isso, a estrutura não é formada.
+        -->
+        <div class="main-Grid-Area">
+            <article>1</article>
+            <article>2</article>
+            <article>3</article>
+            <article>4</article>
+            <article>5</article>
+            <article>
+                <p>
+                    6 - Não importa quantos elementos eu acrescento no container Grid, ele irá absorver e tratar como especificado.
+                </p>
+            </article>
+            <article>7</article>
+            <article>8</article>
+            <article>9</article>
+            <article>10</article>
+        </div>
+        <hr/>
+        <h4>Para demonstrar algumas interações entre os elementos, usaremos grid-template-columns.</h4>
+        <div class="main-Grid-Columns">
+            <article> 1 -
+                <p>
+                    Entenda que dentro dos elementos, de forma padrão, eles iram se comportar semelhante ao inline-block.
+                    <br/>Os elementos dentro do Container GRID irão se modificando conforme seu conteúdo.
+                </p>
+            </article>
+            <article>2 -
+                <p>
+                    É possível modificar tal conteudo, através da determinação de valores absolutos ao elemento.
+                    <br/>Por isso vamos o que compõe um elemento em questão de espaço.
+                    <br/>Temos quatro opções para modificar o espaço ocupado de um elemento:
+                </p>
+            </article>
+            <article>3 -
+                <ol>
+                    <li>Margin (ou margem)</li>
+                    <li>Border (ou borda)</li>
+                    <li>Padding (ou prenchimento)</li>
+                    <li>Content (ou conteudo)</li>
+                </ol>
+            </article>
+            <article>4 -
+                <p>
+                    "margin: value" - Esta define o quanto de margem presente na caixa. 'Margin' é o espaçamento (ou preenchimento) externo a ao container/elemento.
+                </p>
+            </article>
+            <article>5 -
+                <p>
+                    "border: value" - Esta define o quanto de borda ou contorno presente na caixa. 'Border' é o preenchimento o qual afeta o espaço tanto externo quanto interno do container/elemento.
+                </p>
+            </article>
+            <article>6 -
+                <p>
+                    A propriedade "border" possui suas próprias propriedades de estilização.
+                </p>
+            </article>
+            <article>7 -
+                <p>
+                    "padding: value" Esta define o quanto de preenchimento presente na caixa. 'Padding' é o espaçamento (ou preenchimento) interno a ao container/elemento.
+                </p>
+            </article>
+            <article>8 -
+                <p>
+                    "Content" se refere aos outros elementos presentes no container, cada elemento dentro do container consome ou acrescenta espaço na área de conteúdo.
+                </p>
+            </article>
+            <article>9 -
+                <p>
+                    Para sua ciência, existe uma propriedade chamado "content: type". Esta altera outros elementos presentes na class/id, não estando relacionado diretamente a manipulação do espaço.
+                </p>
+            </article>
+            <article class="container-Content">10</article>
+            <article class="container-Content cc-Margin">11</article>
+            <article class="container-Content cc-Padding">12</article>
+            <article class="container-Content cc-Border">13</article>
+            <article class="container-Content">14</article>
+            <article>15</article>
+            <article>16 -
+                <p>
+                    Perceba que com definição de propriedades com valores absolutos aos elementos dentro de um container grid, os elementos priorizam as propriedades deles e deixam de ser responsivos com isso.
+                </p>
+            </article>
+            <article>17 -
+                <p>
+                    Recomendo olhar o código fonte, mas segue o sumário do que está ocorrendo:
+                    <li>No elemento 10 (dez), o elemento foi definido um tamanho horizontal (width), um tamanho vertical (height) e uma cor de fundo.</li>
+                    <li>No elemento 11 (onze), além das propriedades em 10 (dez), foi acrescentado uma margem (margin) de 100px;</li>
+                    <li>No elemento 12 (doze), além das propriedades em 10 (dez), foi acrescentado um prenchimento (padding) de 100px;</li>
+                    <li>No elemento 13 (treze), além das propriedades em 10 (dez), foi acrescentado uma borda (border) de 100px;</li>
+                    <li>No elemento 14 (catorze), são apenas as propriedades de 10 (dez) novamente;</li>
+                    <li>No elemento 15 (quinze), seria um elemento com propriedades não definidas e sem conteudo;</li>
+                </p>
+            </article>
+            <article>18 -
+                <p>
+                    Algo que você deve ter percebido, caso os elementos do grid não terem propriedades próprias absolutas, eles respeitam outras regras.
+                    <br/>Dado o contexto de grid-template-columns do container grid, os elementos grid respeitam rigorosamente a regra de "width" por coluna, no entanto, assumem o maior valor de height presente na linha.
+                </p>
+            </article>
+        </div>
+        <hr/>
+        <h3>Vamos desmonstrar outras propriedades do container grid.</h3>
+        <p>
+            <mark>
+                .main-Grid-Columns-Mod-1{
+                    grid-template-columns: 20% auto 50% 75px;
+                    grid-gap: 10px 35px;
+                }
+            </mark>
+        </p>
+        <div class="main-Grid-Columns main-Grid-Columns-Mod-1">
+            <article>1 -</article>
+            <article>2 -</article>
+            <article>3 -</article>
+            <article>4 -</article>
+            <article>5 -</article>
+            <article>6 -</article>
+            <article>7 -</article>
+            <article>8 -</article>
+        </div>
+        <h3>Vamos desmonstrar outras propriedades do container grid.</h3>
+        <p>
+            <mark>
+                .main-Grid-Columns-Mod-2{
+                    grid-template-columns: 10% auto auto 25em 5em;
+                    grid-gap: 35px 10px;
+                    grid-auto-flow:column;
+                }
+            </mark>
+        </p>
+        <div class="main-Grid-Columns main-Grid-Columns-Mod-2">
+            <article>1 -</article>
+            <article>2 -</article>
+            <article>3 -</article>
+            <article>4 -</article>
+            <article>5 -</article>
+            <article>6 -</article>
+            <article>7 -</article>
+            <article>8 -</article>
+            <article>9 -</article>
+            <article>10 -</article>
+            <article>11 -</article>
+            <article>12 -</article>
+            <article>13 -</article>
+        </div>
+        <h2>Propriedades a ELEMENTOS de uma grid</h2>
+        <p>
+            Elementos pertencentes ao um container com "display: grid" ganham acesso a propriedades .css específicas as quais iteragem com o container e relacionamento com elementos adjacentes.
+            <br/>Estas são propriedades presentes no elemento dentro de um container grid, no entanto, modificam como container grid trata ele em relação a outros elementos.
+            <br/>Lembrando que por ser propriedades específicas ao 'display: grid', elas possuem nomeclaturas específicas.
+            <br/>Segue as propriedades destacadas:
+            <ul>
+                <li>"grid-column: value / value" - Esta propriedade define o quanto um elemento é espaçado em referência a colunas, definindo onde começa e onde termina.</li>
+                <dd>[ANOTAÇÃO] 'grid-column: value / value;' é uma propriedade que une as funções das propriedades "grid-column-start: value" e "grid-column-start: value";</dd>
+                <li>"grid-column-start: value" - Esta propriedade define o começo do espaçamento de um elemento em referência a colunas.</li>
+                <li>"grid-column-end: value" - Esta propriedade define o fim do espaçamento de um elemento em referência a colunas.</li>
+                <li>"grid-row: value / value" - Esta propriedade define o quanto um elemento é espaçado em referência a linhas, definindo onde começa e onde termina.</li>
+                <dd>[ANOTAÇÃO] 'grid-row: value / value;' é uma propriedade que une as funções das propriedades "grid-row-start: value" e "grid-row-start: value";</dd>
+                <li>"grid-row-start: value" - Esta propriedade define o começo do espaçamento de um elemento em referência a linhas.</li>
+                <li>"grid-row-end: value" - Esta propriedade define o fim do espaçamento de um elemento em referência a linhas.</li>
+                <li>"grid-area: value / value / value / value" - Esta propriedade define o quanto um elemento é espaçado em referência a linhas e colunas respectivamente.</li>
+                <dd>[ANOTAÇÃO] "grid-area: value (linha) / value (coluna) / value (linha) / value (coluna);" é uma propriedade que une as funções das propriedades "grid-row: value / value" e "grid-column: value / value";</dd>
+                <dd>[ANOTAÇÃO] "grid-area: 'string';" é uma alternativa de descrever a área de um elemento, considerando que o continer tenha usasdo como referência "grid-template-areas"</dd>
+                <dd>[ANOTAÇÃO] "grid-area: 'string';" e "grid-template-area": 'string' ... ; são complexos, são outra metodologia de determinas espaços, no entanto, bastante poderoso.</dd>    
+            </ul>
+        </p>
+        <p>
+            <mark>
+                .main-Grid-Columns{
+                    display: grid;
+                    grid-template-columns: 40% 40% 20%;
+                }
+                <br/>
+                .main-Grid-Columns-Mod-3{
+                    grid-template-columns: 10% auto auto auto auto;
+                    grid-gap: 15px 15px;
+                }
+                <br/>
+                .grid-Element-1{
+                    grid-column: 1 / 4;
+                }
+                <br/>
+                .grid-Element-2{
+                    grid-row: 2 / 5;
+                }
+                <br/>
+                .grid-Element-3{
+                    grid-column: 4 / 6;
+                    grid-row: 2 / 5;
+                }
+                <br/>
+                .grid-Element-4{
+                    grid-area: 6 / 3 / 12 / 5;
+                }
+                <br/>
+            </mark>
+        </p>
+        <div class="main-Grid-Columns main-Grid-Columns-Mod-3">
+            <article class="grid-Element-1">1 -</article>
+            <article>2 -</article>
+            <article class="grid-Element-2">3 -</article>
+            <article>4 -</article>
+            <article>5 -</article>
+            <article>6 -</article>
+            <article class="grid-Element-3">7 -</article>
+            <article>8 -</article>
+            <article>9 -</article>
+            <article>10 -</article>
+            <article>11 -</article>
+            <article>12 -</article>
+            <article>13 -</article>
+            <article class="grid-Element-4">14 -</article>
+            <article>15 -</article>
+            <article>16 -</article>
+            <article>17 -</article>
+            <article>18 -</article>
+            <article>19 -</article>
+            <article>20 -</article>
+            <article>21 -</article>
+            <article>22 -</article>
+        </div>
+        <ol>
+            <li>Todo template grid, começa na linha 1 e coluna 1, acima de todos os elementos e a extrema esquerda de todos elementos</li>
+            <dd>[ANOTAÇÃO]Uma metodologia interessante ao tratar 'display: grid' seria a ideia de coordenadas geográficas;</dd>
+            <dd>[ANOTAÇÃO]Linha '0' ou 'auto' irá assumir as propriedades, originais assim a posição original dele;</dd>
+            <li>Perceba que conforme eu define espaços para ele ocupar, o próprio container grid, modificou <strong>visualmente</strong> a ordem dos elementos dentro dele.</li>
+            <dd>[ANOTAÇÃO]A mudança é apenas visual, no arquivo .html eles permanecem na mesma ordem;</dd>
+            <dd>[ANOTAÇÃO]É possivel que haja sobreposição entre elementos casos ele tenham "coordenadas" iguais ou parecidas;</dd>
+            <li>Caso um elemento defina cordenadas de linhas e/ou colunas além da extensão original (template) do container grid, ele irá se subdividir para atender a demanda do elemento, modificando o template.</li>
+            <dd>[ANOTAÇÃO]O template permanecerá modificado enquanto este elemente permanecer presente nele;</dd>
+        </ol>
+        <hr/>
+        <h3>grid-template-areas, complexo, poderoso</h3>
+        <p>
+            Tanto a propriedade de 'grid-template-areas' e 'grid-area' são muito poderosas permitem uma flexibilidade de manipulação de elementos não vista em comparação aos outros displays.
+            <br/>Cada propriedade possui métodos específicos, nomeclaturas específicas e manipulam elementos dentro de um container grid de forma bem livre.
+            <br/>Por serem propriedades interligadas em função, será dificil exemplificar cada propriedade individualmente. Aqui será feito possível para explicar de forma didática. 
+            <br/>Sobre 'grid-template-areas':
+            <ul>
+                <li>'grid-template-areas: ' 'string' ';' - Esta propriedade é definida por "strings", por nomes, por texto, não valores númericos</li>
+                <dd>[ANOTAÇÃO] 'grid-template-areas' definido somente no container grid;</dd>
+                <dd>[ANOTAÇÃO] É possivel em 'grid-template-areas' determinar o número de linhas e o número de colunas de um container grid, mas não o espaçamento deles.</dd>
+                <li>Para determinar valores a 'grid-template-areas', definimos linhas através de (') aspas simples, e pulamos a linha através do espaço (barra de espaço);</li>
+                <dd>[EXEMPLO] grid-template-areas: 'header header logo header header' ;</dd>
+                <dd>[EXEMPLO] grid-template-areas: 
+                        'header header logo header header'
+                        'cnt-principal cnt-principal cnt-principal cnt-principal propaganda'  
+                        'footer footer footer footer footer';
+                </dd>
+                <li>Os titulos/nomes dados a grid-template-areas, tem termos de função, são diferentes de classes e id.</li>
+                <li>[RECOMENDAÇÃO] Os nomes das areas serem semelhantes aos nomes das classes para melhor identificao</li>
+                <li>Pela dinamicidade provida pelo container grid e 'grid-template-areas', torna-se possível a alteração da ordem visual dos elementos dentro dele alterando somente os nomes pelo 'grid-template-areas'</li>
+                <dd>[ANOTAÇÃO] Isso é maior benefício desta propriedade, a possibilidade de modificar com precisão usando apenas uma propriedade e mudar radicalmente de forma desejada.</dd>
+                <li>A determinação de áreas em 'grid-template-areas' precisa ter um inicio determinado e um final determinado, sem repetição das áreas em meio ao template e sem quebra dá area por outras áreas.</li>
+                <dd>[EXEMPLO] Isso funciona (exemplo de linha): 'header header logo . .' (5 colunas e 1 linha: 2 colunas para header; 1 coluna para logo; 2 colunas neutras ); </dd>
+                <dd>[EXEMPLO] Isso <strong>não</strong> funciona (exemplo de linha): 'header header logo header header' (5 colunas e 1 linha: 2 colunas para header; 1 coluna para logo; 2 colunas para header); </dd>
+                <li>Uma 'grid-area' é unica no 'grid-template-areas'.</li>
+                <li>Caso queira determinar um coluna em 'grid-template-areas' sem determinar uma área, utilize (.) como se fosse uma área.</li>
+                <li>Caso haja um elemento dentro do container grid de 'grid-template-areas', o qual não foi especificado uma área ele irá povoar as áreas indeterminadas primeiro, depois adicionar elementos ao grid seguindo a contagem de colunas.</li>
+            </ul>
+            <code>
+                <mark>
+                    .main-Grid-Areas{
+                        display: grid;
+                        grid-template-areas:
+                            'header header logo . .'
+                            'cnt-principal cnt-principal cnt-principal cnt-principal propaganda'
+                            'footer footer footer footer propaganda';
+                        grid-gap: 15px 15px;
+                        background-color: aqua;
+                    }
+                    <br/>
+                    .grid-item-Header{
+                        grid-area: header;
+                        background-color: darkgoldenrod;
+                    }
+                    <br/>
+                    .grid-item-Logo{
+                        grid-area: logo;
+                        background-color: rgb(184, 11, 175);
+                    }
+                    <br/>
+                    .grid-item-Conteudo-Principal{
+                        grid-area: cnt-principal;
+                        background-color: rgb(184, 11, 11);
+                    }
+                    <br/>
+                    .grid-item-Container-Propaganda{
+                        grid-area: propaganda;
+                        background-color: rgb(86, 11, 184);
+                    }
+                    <br/>
+                    .grid-item-Footer{
+                        grid-area: footer;
+                        background-color: rgb(60, 184, 11);
+                    }
+                    <br/>
+                </mark>
+            </code>
+        </p>
+        <h4>Segue um exemplo com elementos com a propriedade 'grid-area' fora do container grid:</h4>
+        <article class="grid-item-Header">Um Header</article>
+        <article class="grid-item-Logo">Uma Logo</article>
+        <article class="grid-item-Conteudo-Principal">Um Conteudo</article>
+        <article class="grid-item-Container-Propaganda">Uma Propaganda</article>
+        <article class="grid-item-Footer">Um Footer</article>
+        <h4>Segue um exemplo com elementos com a propriedade 'grid-area' dentro container grid:</h4>
+        <div class="main-Grid-Areas">
+            <article class="grid-item-Header">Um Header</article>
+            <article class="grid-item-Logo">Uma Logo</article>
+            <article class="grid-item-Conteudo-Principal">Um Conteudo</article>
+            <article class="grid-item-Container-Propaganda">Uma Propaganda</article>
+            <article class="grid-item-Footer">Um Footer</article>
+        </div>
+        <h4>Segue um exemplo com elementos com a propriedade 'grid-area' e com elementos sem 'grid-area' dentro container grid:</h4>
+        <div class="main-Grid-Areas main-Grid-Areas-Mod-1">
+            <article class="grid-item-Header">Um Header</article>
+            <article class="grid-item-Logo">Uma Logo</article>
+            <article class="grid-item-Conteudo-Principal">Um Conteudo</article>
+            <article class="grid-item-Container-Propaganda">Uma Propaganda</article>
+            <article class="grid-item-Footer">Um Footer</article>
+            <article>16 -</article>
+            <article>17 -</article>
+            <article>18 -</article>
+            <article>19 -</article>
+            <article>20 -</article>
+            <article>21 -</article>
+            <article>22 -</article>
+            <article>23 -</article>
+            <article>24 -</article>
+            <article>25 -</article>
+        </div>
+        <h4>Perceba que na ausencia desses outros elementos, os elementos assume o mesmo espaço (ou area), no entanto, seu preenchimento é modificado dinamicamente.</h4>
+        <div class="main-Grid-Areas main-Grid-Areas-Mod-1">
+            <article class="grid-item-Header">Um Header</article>
+            <article class="grid-item-Logo">Uma Logo</article>
+            <article class="grid-item-Conteudo-Principal">Um Conteudo</article>
+            <article class="grid-item-Container-Propaganda">Uma Propaganda</article>
+            <article class="grid-item-Footer">Um Footer</article>
+        </div>
+        <hr/>
+        <h3>Considerações finais sobre Grid</h3>
+        <p>
+            Olha só o .CSS já um assunto vasto, e 'display: grid' por si só possue inúmeras utilizações, interações e modelos.
+            <br/>Eu penso que com o conhecimento desta aula seja possível ter uma base sólida de conhecimento para fazer experimentos e descobrir suas peculariedades.
+            <br/>Por exemplo, é possível usar containers grid dentro de containers grid; Modificar a estrutura e ordem dos elementos de acordo com tamanho da tela; acresentar elementos dinâmicamente e etc;
+            <br/>Por isso, recomendo nessa aula principalmente ver o código fonte (.html e .css) e modificar, estudar, acrescentar ser sua base de experimentos.
+            <br/>Mas daqui, vamos seguir para outros assuntos.
+        </p>
+    </main>
+    <hr/>
+    <footer>
+        <h4 style="text-align: center;">Criado por: Roan Nunes</h4>
+        <ul>
+            <li><a href="Aula_1_ConsideracoesIniciais.html">Aula 1 - Considerações Iniciais</a></li>
+            <li><a href="Aula_2_SeletoresEPseudos.html">Aula 2 - SeletoresEPseudos</a></li>
+            <li><a href="Aula_3_DivsEDisplays.html">Aula 3 - Div(s) e Displays</a></li>
+            <li><a href="Aula_4_GridEBoxs.html">Aula 4 - Grid e Boxs</a></li>
+            <li><a href="Aula_5_ResponsividadeEUnidades.html">Aula 5 - Responsividade e Unidades</a></li>
+            <li><a href="Aula_6_VariaveisEAnimacoes.html">Aula 6 - Variáveis e Animações</a></li>
+        </ul>
+    </footer>
+</body>
+</html>

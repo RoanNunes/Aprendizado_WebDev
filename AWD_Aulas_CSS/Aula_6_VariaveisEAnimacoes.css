@@ -1,0 +1,224 @@
+/*--- ROOT ---*/
+:root{
+    --main-BG-Color: rgb(0, 49, 34);
+    --main-Font-Color: rgb(255, 255, 255);
+}
+
+/*--- Keyframes ---*/
+
+@keyframes simple-LefttoRight {
+    from{
+        left: 0%;
+    }
+    to{
+        left: 84%;
+    }
+}
+
+@keyframes simple-GrowEColor {
+    0%{
+        width: 15%;
+        background-color: chartreuse;
+    }
+    50%{
+        width: 80%;
+        background-color:darksalmon;
+    }
+    90%{
+        width: 10%;
+        background-color:darkgreen;
+    }
+    100%{
+        width: 15%;
+        background-color:chartreuse;
+    }
+}
+
+@keyframes MoveERotate {
+    0%{
+        left: 0%;
+        rotate: 0deg;
+    }
+    10%{
+        left: -4%;
+        rotate: -10deg;
+    }
+    30%{
+        left: 80%;
+        rotate: 405deg;
+    }
+    50%{
+        left: 80%;
+        rotate: 410deg;
+    }
+    100%{
+        left: 0%;
+        rotate: 0deg;
+    }
+}
+
+/*--- TAGs ---*/
+body{
+    width: 80%;
+    margin: 0px auto;
+    font-size: 1.3rem;
+}
+
+h1{
+    text-align: center;
+}
+
+article{
+    background-color: var(--main-BG-Color);
+    color: var(--main-Font-Color);
+    padding: 2px 2% 2px 2%;
+}
+
+/*--- CLASSes ---*/
+.main-Display-Grid-Variaveis{
+    display: grid;
+    grid-template-areas: 
+        'IG-Header IG-Header IG-Header'
+        'IG-Variaveis-Conteudo IG-Variaveis-Conteudo IG-Variaveis-Conteudo'
+        'IG-VariaveisExemplo IG-VariaveisExemplo .'
+        '. . .'
+        '. . .'
+        '. . .';
+    grid-gap: 15px;
+}
+
+.main-Display-Grid-Animacao{
+    display: grid;
+    grid-template-areas: 
+        'IG-AnimacaoHeader IG-AnimacaoHeader'
+        '. .'
+        '. .'
+        '. .'
+        '. .'
+        '. .'
+        '. .'
+        '. .';
+    grid-gap: 15px;
+}
+
+.box-Active-1{
+    position: relative;
+    background-color: pink;
+    text-align: center;
+    width:15%;
+    padding: 15px 0px;
+    margin: 20px 0px;
+    animation-name: simple-LefttoRight;
+    animation-duration: 5s;
+}
+
+.box-Active-2{
+    position: relative;
+    background-color: rgb(156, 199, 0);
+    text-align: center;
+    width: 15%;
+    padding: 15px 0px;
+    margin: 20px 0px;
+    animation-name: simple-GrowEColor;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
+
+.box-Active-3{
+    position: relative;
+    background-color: rgb(0, 199, 172);
+    text-align: center;
+    width: 15%;
+    padding: 15px 0px;
+    margin: 20px 0px;
+}
+
+.box-Active-4{
+    position: relative;
+    background-color: rgb(143, 0, 199);
+    text-align: center;
+    width: 20%;
+    padding: 25px 0px;
+    margin: 50px 0px;
+}
+
+.box-Animation-MoveERotate{
+    animation-name: MoveERotate;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+
+/*--- IDs ---*/
+#Item-Grid-Variaveis-Header{
+    grid-area: IG-Header; 
+    /* height: 350px; */
+    background-color: var(--main-BG-Color);
+    
+}
+#Item-Grid-Variaveis-Conteudo{
+    grid-area: IG-Variaveis-Conteudo; 
+    /* height: 350px; */
+    color: var(--main-Font-Color);
+    padding: 2px 2% 2px 2%;
+}
+#Item-Grid-Variaveis-Exemplo{
+    grid-area: IG-VariaveisExemplo; 
+    /* height: 350px; */
+    background-color: var(--main-BG-Color);
+    color: var(--main-Font-Color);
+    font-size: 0.8em;
+    padding: 2px 2% 20px 2%;
+}
+
+#Item-Grid-Animacao-Header{
+    grid-area: IG-AnimacaoHeader;
+}
+
+/*--- PSEUDO-CLASSs ---*/
+header > p{
+    text-align: justify;
+}
+
+* > h2{
+    text-align: center;
+    color: var(--main-Font-Color);
+    font-size: 8vmax;
+    margin: 2% auto 2% auto;
+}
+
+/*--- PSEUDO-ELEMENTs ---*/
+
+/*--- MEDIA ---*/
+body{
+    /* MOD */width: 90%;
+    margin: 0px auto;
+    /* MOD */font-size: 1.2rem;
+}
+@media screen and (max-width: 992px) {
+    .main-Display-Grid-Variaveis{
+        display: grid;
+        /* MOD */grid-template-areas: 
+            'IG-Header' 
+            'IG-Variaveis-Conteudo'
+            'IG-VariaveisExemplo'
+            '.'
+            '.'
+            '.'
+            '.';
+        grid-gap: 15px;
+    }
+
+    .main-Display-Grid-Animacao{
+        display: grid;
+        grid-template-areas: 
+            'IG-AnimacaoHeader'
+            '.'
+            '.'
+            '.'
+            '.'
+            '.'
+            '.'
+            '.';
+        grid-gap: 15px;
+    }
+}

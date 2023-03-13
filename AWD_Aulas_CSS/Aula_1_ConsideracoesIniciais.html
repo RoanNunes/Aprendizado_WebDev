@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Aula_1_ConsideracoesIniciais.css"/>
+    <title>CSS - Aula 1 - Considerações</title>
+</head>
+<style>
+:nth-child(8){
+    background-color: green;
+}
+</style>
+<body>
+    <header>
+        <h1>Olha, CSS é um assunto vasto.</h1>
+        <p>
+            Há múltiplos conceitos teoricos, tecnicas oficiais, métodos não tão oficiais, muito que poderia ser ensinado.
+            <br/>No entanto, aqui daremos um foco na manipulação, nomeclatura, destacando de vez em quando alguma propriedade específica.
+            <br/>Vou acresecentar que para lições de CSS é fundamental ler o código fonte, pois ele provavelmente terá seu arquivo dedicado.
+            <br/>Também poderá perceber que conforme as aulas progridem, o visual da página irá mudar.
+        </p>
+    </header>
+    <main>
+        <article>
+            <h2>Sintaxe (ou Syntax)</h2>
+            <code>
+                h4 {
+                    color: white;
+                    background-color: black;
+                }
+            </code>
+            <p>
+                Temos o seletor: (h4);
+                <br>Temos as propriedads: (color), (background-color);
+                <br>Temos os valores: (white), (black);
+            </p>
+            <p>
+                Veremos que seletores podem ser: tag(s) html, class(s), id(s), pseudo-class(s), pseudo-element(s).
+                <br/>Cada um possui sua simbologia e nomeclatura, e por eles existem um conjunto de propriedades que podemos modificar.
+            </p>
+        </article>
+        <hr/>
+        <article>
+            <h2>Métodos de CSS</h2>
+            <p>
+                Há três métodos oficiais de inserir e utilizar CSS em um arquivo HTML:
+                <li>Inline CSS - Utilizando o atributo 'style' nas tags HTMLs;</li>
+                <li>Interno CSS - Utilizando a tag 'style' dentro do arquivo HTML, geralmente entre as tags (head) e (body);</li>
+                <li>Externo CSS - Utilizando um arquivo distinto (.css), importanto ele a página HTML o qual usará ele;</li>
+            </p>
+            <h3 style="background-color: red">Inline CSS</h3>
+            <h3>Interno CSS</h3>
+            <h3>Externo CSS</h3>
+        </article>
+    </main>
+    <hr/>
+    <footer>
+        <h4 style="text-align: center;">Criado por: Roan Nunes</h4>
+        <ul>
+            <li><a href="Aula_1_ConsideracoesIniciais.html">Aula 1 - Considerações Iniciais</a></li>
+            <li><a href="Aula_2_SeletoresEPseudos.html">Aula 2 - SeletoresEPseudos</a></li>
+            <li><a href="Aula_3_DivsEDisplays.html">Aula 3 - Div(s) e Displays</a></li>
+            <li><a href="Aula_4_GridEBoxs.html">Aula 4 - Grid e Boxs</a></li>
+            <li><a href="Aula_5_ResponsividadeEUnidades.html">Aula 5 - Responsividade e Unidades</a></li>
+            <li><a href="Aula_6_VariaveisEAnimacoes.html">Aula 6 - Variáveis e Animações</a></li>
+        </ul>
+    </footer>
+</body>
+</html>

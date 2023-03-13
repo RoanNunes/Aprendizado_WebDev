@@ -1,0 +1,104 @@
+/*--- ROOT ---*/
+/*
+    Um conhecimento extra, isso abaixo em :root é uma variável.
+    Eu tentei deixar isso de forma mais fácil de modificar, mas variáveis CSS tem seus limites.
+    Não são tão flexíveis quanto variáveis em linguagens de programação.
+*/
+:root{
+    --tamanhoFonte: 8;
+}
+/*
+    Decidi deixar esse erro como anotação para sua curiosidade.
+    E não, não falamos sobre variaveis .css, não sei se falaremos sobre.
+    Por exemplo, isso a seguir, não funciona:
+
+.font-CM{
+    font-size: var(--tamanhoFonte) cm;
+}
+.font-MM{
+    font-size: var(--tamanhoFonte) mm;
+}
+*/
+/*--- TAGs ---*/
+body{
+    font-size: 1.2em;
+    width: 75%;
+    margin: 0% auto;
+}
+
+
+/*--- CLASSs ---*/
+
+.font-CM{
+    font-size: 8cm;
+}
+.font-MM{
+    font-size: 8mm;
+}
+.font-PX{
+    font-size: 8px;
+}
+.font-IN{
+    font-size: 8in;
+}
+.font-PT{
+    font-size: 8pt;
+}
+.font-PC{
+    font-size: 8pc;
+}
+
+.font-PORCT{
+    font-size: 5%;
+}
+.font-EM{
+    font-size: 5em;
+}
+.font-REM{
+    font-size: 5rem;
+}
+.font-EX{
+    font-size: 5ex;
+}
+.font-CH{
+    font-size: 5ch;
+}
+.font-VW{
+    font-size: 5vw;
+}
+.font-VH{
+    font-size: 5vh;
+}
+.font-VMIN{
+    font-size: 5vmin;
+}
+.font-VMAX{
+    font-size: 5vmax;
+}
+
+.main-Display-Grid{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    background-color: chartreuse;
+    grid-gap: 10px 10px;
+}
+.grid-Item{
+    width: 100%;
+    height: 200px;
+    background-color: deeppink;
+}
+/*--- IDs ---*/
+
+/*--- PSEUDO-CLASSs ---*/
+
+/*--- PSEUDO-ELEMENTs ---*/
+
+/*--- MEDIA ---*/
+@media screen and (max-width: 992px){
+    .main-Display-Grid{
+        display: grid;
+        /* MODDED */grid-template-columns: auto auto;
+        background-color: chartreuse;
+        grid-gap: 10px 10px;
+    }
+}

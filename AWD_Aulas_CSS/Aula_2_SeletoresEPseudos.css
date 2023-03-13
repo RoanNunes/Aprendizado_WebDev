@@ -1,0 +1,125 @@
+/*
+    Eu pessoalmente recomendo a separação por: :root, TAG, CLASS, ID, PSEUDO-CLASS, PSEUDO-ELEMENT, MEDIA;
+    Falaremos sobre divisão futuramente e seus usos.
+*/
+/*--- TAGs ---*/
+body{
+    font-size: 1.2em;
+    width: 80%;
+    margin: 0% auto;
+}
+
+h5{
+    font-size: 1.6em;
+    color: white;
+    background-color: black;
+}
+
+
+/*--- Classes ---*/
+.container-flexbox{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin: 20px auto;
+}
+.caixa{
+    width: 200px;
+    height: 200px;
+}
+.caixa-curvada{
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+}
+.caixa-bordada{
+    border-color: black;
+    border-style: solid;
+    border-width: 0.1em;
+}
+.azul{
+    background-color: aqua;
+}
+.vermelho{
+    background-color: red;
+}
+
+.jorge{
+    border-color: black;
+    border-style: solid;
+    border-width: 0.1em;
+}
+
+/*--- IDs ---*/
+#FotoUnica{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: brown;
+}
+#Header{
+    width: 400px;
+    height: 70px;
+    border-radius: 10px;
+    border-color: black;
+    border-style: solid;
+    border-width: 0.1em;
+}
+#Olimpica{
+    width: 100%;
+    height: 100px;
+    border-color: black;
+    border-style: dotted;
+    border-width: 0.3em;
+    background-color: red;
+}
+
+/*--- Pseudo-Classes ---*/
+* > section:nth-of-type(4) > .container-flexbox > div:nth-child(1){
+    background-color: black;
+}
+/* 
+    Fique atento como o CSS interpreta os elementos HTML, as vezes algo que parece lógico não é a interpretação do CSS.
+    [ATENÇÃO] O uso de pseudo seletores parece simples em conceito, mas dependendo da complexidade da página ou projeto, é muito facil sair do controle.
+*/
+.jorge:hover{
+    background-color: aqua;
+}
+/* 
+    Perceba que aqui eu sigo as seguintes etapas:
+    - Uso a classe ".jorge" para definir o contexto, ou o "universo"; 
+    - Escolho o conjunto de elementos dentro desse universo, nesse contexto foram "div"; 
+    - A partir desse conjunto, então defino um estado ou condição para estilizar/modificar, nesse contexto foi hierarquia;
+    Este já um caso mais avançado de uso, mas demonstra como é possível ser bem específico com o seletor, mesmo que não haja classe definida no HTML.
+*/
+.jorge > div:nth-child(2){
+    background-color:darkgoldenrod;
+}
+.jorge > div:nth-child(3){
+    background-color:violet;
+}
+.jorge:nth-child(1){
+    background-color: blue;
+}
+/* 
+    E para contexto, isso:
+    
+    .jorge:nth-child(1){
+        background-color: blue;
+    }
+    
+    Ele não funciona como está de primeira vista. Ele não escolhe o primeiro filho da classe jorge.
+    A interpretação correta seria como: 
+    - No universo da página toda, 
+    - Seleciona o conjunto de elementos chamados ".jorge"; 
+    - A partir desse conjunto tenta atribuir um estado e modifica-ló (mas não consegue);
+*/
+
+/* Pseudo-Element */
+ol::first-line{
+    color: gold;
+    font-size: large;
+}
+h6::first-letter{
+    font-size: 32px;
+}

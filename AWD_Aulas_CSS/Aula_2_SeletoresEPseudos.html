@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Aula_2_SeletoresEPseudos.css"/>
+    <title>CSS - Aula 2 - SeletoresEPseudos</title>
+</head>
+<body>
+    <header>
+        <h1>Seletores de CSS</h1>
+        <p>
+            Há 3 (três) seletores definidos, ou próprios e há 2 (dois) pseudo seletores.
+            <br/>Seletores definidos são aqueles o qual a referência é um termo, ou predeterminado pelo HTML ou criado para identificar pelo CSS;
+            <li>Tag(s) (HTML) - Exemplo: body, h1, h2, p, spain, table, li, ul, ol, ...</li>
+            <li>Class(es) - Exemplo: .container, .nav, .caixa, .nome, .contexto, .descrição, ...</li>
+            <li>Id(s) - Exmeplo: #Nome, #Header, #Hotel, #Bola, ....</li>
+            <br/>Pseudo seletores são definidos por sua referência ser relativa, sendo determinada por um padrão, algoritmo ou um argumento;
+            <li>'Pseudo-class' - Exemplo: :nth-child, :hover, :link, :first-child ...</li>
+            <li>'Pseudo-element' - Exemplo: ::after, ::before, ::first-letter, ::first-line, ::marker, ::selection</li>
+        </p>
+    </header>
+    <hr/>
+    <main>
+        <article>
+            <h2>Seletores definidos</h2>
+            <p>
+                São eles: tag, class, id.
+                <br/> Podemos usa-lós individualmente, múltiplos, ou combinados.
+                <li>Individulmente - Exemplo: h1 {}; .caixa {}; #Nav {}; ...</li>
+                <li>Múltiplos - Exemplo: h1, .contexto {}; .descrição, #Bola {}; ... </li>
+                <li>Combinados - Exemplo: body > h4 {}; .contexto + img {}; ...</li>
+            </p>
+            <section>
+                <h3>Seletor: TAG</h3>
+                <p>
+                    TAG(s) são os identificadores usados no próprio HTML.
+                    <br/>Caso não haja tratamento, toda estilização feita por TAGs são feita em toda instância pela página ou arquivo .html.
+                    <br/>Segue o seguinte exemplo:
+                </p>
+                <code>
+                    <mark>
+                        h5{
+                            font-size: 1.6em;
+                            color: white;
+                            background-color: black;
+                        }
+                    </mark>
+                </code>
+                <h5>Eu sou um h5!</h5>
+                <h5>Não importa qual seja.</h5>
+                <h5>Eu sou estilizado!</h5>
+            </section>
+            <section>
+                <h3>Seletor: CLASS</h3>
+                <p>
+                    Class(es) são os identificadores criados pelo desenvolvedor e podem se referenciados múltiplas vezes.
+                    <br/>No CSS, toda classe é determinada pelo nome haver um ponto (.) como préfixo.
+                    <br/>Elementos HTML podem referênciar uma ou múltiplas classes ao mesmo tempo, podendo haver sobreposição entre as propriedades das classes diferentes;
+                    <br/>Genericamente, quanto mais a direita a classe é referênciada, mais prioridade ela possui na sobreposição (como se estivesse empilhando classes);
+                </p>
+                <code>
+                    <mark>
+                        .container-flexbox{
+                            display: flex;
+                            width: 100%;
+                            justify-content: center;
+                            margin: 20px auto;
+                        }
+                        <br/>
+                        .caixa{
+                            width: 200px;
+                            height: 200px;
+                        }
+                        <br/>
+                        .caixa-curvada{
+                            width: 200px;
+                            height: 200px;
+                            border-radius: 10px;
+                        }
+                        <br/>
+                        .caixa-bordada{
+                            border-color: black;
+                            border-style: solid;
+                            border-width: 0.1em;
+                        }
+                        <br/>
+                        .azul{
+                            background-color: aqua;
+                        }
+                        <br/>
+                        .vermelho{
+                            background-color: red;
+                        }
+                        <br/>
+                    </mark>
+                </code>
+                <div class="container-flexbox">
+                    <div class="caixa">Sou uma caixa.</div>
+                    <div class="caixa-curvada caixa-bordada">Sou uma caixa curvada.</div>
+                    <div class="caixa caixa-bordada azul">Sou uma caixa, sou azul.</div>
+                    <div class="caixa caixa-bordada azul vermelho">Sou uma caixa, sou azul..?</div>
+                </div>
+            </section>
+            <section>
+                <h3>Seletor: ID</h3>
+                <p>
+                    ID(s) são os identificadores criados pelo desenvolvedor e podem se referenciados somente uma única vez.
+                    <br/>No CSS, todo ID é determinado pelo nome haver um ponto (#) como préfixo.
+                    <br/>Elementos HTML podem referênciar uma ou múltiplos IDs ao mesmo tempo, contando que os mesmos não foram usados ainda;
+                    <br/>Genericamente, quanto mais a direita o ID é referênciado, mais prioridade ele possui na sobreposição (como se estivesse empilhando itens);
+                </p>
+                <code>
+                    <mark>
+                        #FotoUnica{
+                            width: 200px;
+                            height: 200px;
+                            border-radius: 50%;
+                            background-color: brown;
+                        }
+                        <br/>
+                        #Header{
+                            width: 400px;
+                            height: 70px;
+                            border-radius: 10px;
+                            border-color: black;
+                            border-style: solid;
+                            border-width: 0.1em;
+                        }
+                        <br/>
+                        #Olimpica{
+                            width: 100%;
+                            height: 100px;
+                            border-color: black;
+                            border-style: dotted;
+                            border-width: 0.3em;
+                            background-color: red;
+                        }
+                        <br/>
+                    </mark>
+                </code>
+                <div class="container-flexbox">
+                    <div id="FotoUnica">Sou uma "foto"</div>
+                    <div id="Header">Sou um header</div>
+                    <div id="Olimpica Header">Sou um header?</div>
+                </div>
+            </section>
+            <section>
+                <h3>Seletores combinados</h3>
+                <p>
+                    Assim como podemos selecionar um ou múltiplos elementos e modifica-los ao mesmo tempo, podemos selecionar através do relacionamento entre eles.
+                    <br/>Um relacionamento de elementos Html é derivado da organização e estruturação da página HTML.
+                    <br/>E para determinar qual tipo de relacionamento desejamos agregar ao escopo do seletor há uma simbologia específica:
+                    <li>(espaço) - seletor descendente</li>
+                    <li>(>) - seletor filho</li>
+                    <li>(+) - seletor de irmão adjacente</li>
+                    <li>(~) - seletor geral de irmãos</li>
+                </p>
+                <div class="container-flexbox">
+                    <div>O que eu sou?</div>
+                    <div>O que eu posso ser?</div>
+                    <div>O que eu serei?</div>
+                </div>    
+            </section>
+        </article>
+        <hr/>
+        <article>
+            <h2>Pseudo-Seletores ou Seletores relativos</h2>
+            <p>
+                São eles: Pseudo-classes, Pseudo-elementos.
+                <br/> Pseudo-Seletores são seletores relativos, que indicam um estado do objeto, algoritmo, condição, ou argumento. 
+                <li>Pseudo-class - Representado pelo préfixo de (:) dois pontos antes do nome;</li>
+                <li>Pseudo-element - Representado pelo préfixo de (::) duas pontuações seguidas de dois pontos antes do nome;</li>
+                <br/>Diferentes dos seletores definidos, o desenvolvedor não define o nome, ou o que é, ou o que faz. Existe um conjunto de comando já imbutinos no CSS3.
+            </p>
+            <section>
+                <h3>Seletor: Pseudo-Class</h3>
+                <p>
+                    Pseudo-Classes usualmente definem um estado ou situação o qual um elemento pode se encontrar.
+                    <br/>Aqui serão apenas explicados alguns por seu potencial, mas a lista completa pode ser encontrada aqui: <a href="https://www.w3schools.com/css/css_pseudo_classes.asp" target="_blank">Pseudo-Classes por W3shools</a>
+                    <br/>Para o seguinte exemplo, teremos "div"s num container de classe jorge, e vamos ser capazes modifica-los mesmo tais divs não havendo identificadores, classes, ids, etc;
+                </p>
+                <code>
+                    <mark>
+                        .jorge{
+                            border-color: black;
+                            border-style: solid;
+                            border-width: 0.1em;
+                        }
+                        <br/>
+                        .jorge:hover{
+                            background-color: aqua;
+                        }
+                        <br/>
+                        .jorge > div:nth-child(2){
+                            background-color:darkgoldenrod;
+                        }
+                        <br/>
+                        .jorge > div:nth-child(3){
+                            background-color:violet;
+                        }
+                        <br/>
+                        .jorge:nth-child(1){
+                            background-color: blue;
+                        }
+                        <br/>
+                        Perceba que nth-clild não funciona por não atribuir o contexto corretamente. Mais detalhes olhe o código fonte .css;
+                    </mark>
+                </code>
+                <div class="container-flexbox jorge">
+                    <div>O que eu sou?</div>
+                    <div>O que eu posso ser?</div>
+                    <div>O que eu serei?</div>
+                </div>    
+            </section>
+            <section>
+                <h3>Seletor: Pseudo-Element</h3>
+                <p>
+                    Pseudo-Element tem como objetivo modificar algo dentro do escopo determinado pelo desenvolvedor.
+                    <br/>Pseudo-Elementos são orientados a serem mais específicos, a estilização precisa de certos elementos.
+                    <br/>A lista completa pode ser encontrada aqui: <a href="https://www.w3schools.com/css/css_pseudo_elements.asp" target="_blank">Pseudo-Elements por W3shools</a>
+                </p>
+                <code>
+                    <mark>
+                        .jorge{
+                            border-color: black;
+                            border-style: solid;
+                            border-width: 0.1em;
+                        }
+                        <br/>
+                        .jorge:hover{
+                            background-color: aqua;
+                        }
+                        <br/>
+                        .jorge > div:nth-child(2){
+                            background-color:darkgoldenrod;
+                        }
+                        <br/>
+                        .jorge > div:nth-child(3){
+                            background-color:violet;
+                        }
+                        <br/>
+                        .jorge:nth-child(1){
+                            background-color: blue;
+                        }
+                        <br/>
+                        Perceba que nth-clild não funciona por não atribuir o contexto corretamente. Mais detalhes olhe o código fonte .css;
+                    </mark>
+                </code>
+                <h6>Todo H6 é modificado</h6>
+                <ol>
+                    <li>Elemento sendo modificado!</li>
+                    <li>Elemento sendo modificado!</li>
+                    <li><h6>Todo H6 é modificado</h6></li>
+                </ol>
+            </section>
+        </article>
+    </main>
+    <hr/>
+    <footer>
+        <h4 style="text-align: center;">Criado por: Roan Nunes</h4>
+        <ul>
+            <li><a href="Aula_1_ConsideracoesIniciais.html">Aula 1 - Considerações Iniciais</a></li>
+            <li><a href="Aula_2_SeletoresEPseudos.html">Aula 2 - SeletoresEPseudos</a></li>
+            <li><a href="Aula_3_DivsEDisplays.html">Aula 3 - Div(s) e Displays</a></li>
+            <li><a href="Aula_4_GridEBoxs.html">Aula 4 - Grid e Boxs</a></li>
+            <li><a href="Aula_5_ResponsividadeEUnidades.html">Aula 5 - Responsividade e Unidades</a></li>
+            <li><a href="Aula_6_VariaveisEAnimacoes.html">Aula 6 - Variáveis e Animações</a></li>
+        </ul>
+    </footer>
+</body>
+</html>

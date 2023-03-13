@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Aula_5_ResponsividadeEUnidades.css"/>
+    <title>CSS - Aula 5 - Responsividade e unidades</title>
+</head>
+<body>
+    <header>
+        <h1>Responsividade e unidades</h1>
+        <p>
+            No século XXI, a tecnologia evolui (e até 2023 ainda evolui) rapidamente, com ela surgiram diferentes métodos de usar e onde usar máquinas computacionais.
+            <br/>Isso quer dizer que diferentes aparelhos com diferentes especificações tentam acessar e realizar funções semelhantes.
+            <br/>Para Web Design específicamente, isso quer dizer que temos diferentes tamanhos de tela para considerar, e como usuário interage com a "página da web"/"aplicação web".
+            <br/>Com o tempo, diferentes frameworks surgiram para suprir essa nova necessidade, a de ser responsivo a expectativa do usuário.
+            <br/>No entanto com a criação de HTML5 e CSS3, muito dessas capacidades se tornaram nativas das linguagens. Um exemplo claro disso são os displays 'flex' e 'grid'.
+            <br/>Acresentando a isso, temos agora dezenas de unidades para definir o espaço de um elemento em Web Development.
+            <br/>Vamos com calma, um tópico de cada vez. 
+        </p>
+    </header>
+    <hr/>
+    <main>
+        <article>
+            <h2>Unidades de tamanho</h2>
+            <p>
+                Essas unidades são referêntes aos valores que podem ser atribuidos a muitas propriedades principalmente ao .CSS.
+                <br/>Temos dois tipos:
+                <li>Unidades Absolutas - São unidades definitivas e fixas, as quais não alteram por nada e apresentaram a exata medida desejada.</li>
+                <li>Unidades Relativas - São unidades as quais possuem algum ponto de referência para se escalarem e modificarem dinamicamente.</li>
+                <br>
+            </p>
+            <section>
+                <h3>Unidades Absolutas</h3>
+                <ul>
+                    <li>cm - centímetro</li>
+                    <li>mm - milímetro</li>
+                    <li>px - pixel</li>
+                    <li>in - inches (1in = 96px = 2.54cm)</li>
+                    <li>pt - point (1pt = 1/72 of 1in)</li>
+                    <li>pc - picas (1pc = 12 pt)</li>
+                    <dd>(Sim, essa medida existe, humor 5° ano :D)</dd>
+                </ul>
+                <p>
+                    Exemplo (todas tem o valor 8):
+                    <br/>Sim, a diferênça é grande.
+                </p>
+                <ul>
+                    <li class="font-CM">cm - centímetro</li>
+                    <li class="font-MM">mm - milímetro</li>
+                    <li class="font-PX">px - pixel</li>
+                    <li class="font-IN">in - inches (1in = 96px = 2.54cm)</li>
+                    <li class="font-PT">pt - point (1pt = 1/72 of 1in)</li>
+                    <li class="font-PC">pc - picas (1pc = 12 pt)</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Unidades Relativas</h3>
+                <ul>
+                    <li>% - Usa como referência o container o qual o elemento está inserido</li>
+                    <li>em - Usa como referência o tamanho da fonte (font-size) do elemento</li>
+                    <li>rem - Usa como referência o tamanho da fonte (font-size) do ':root'</li>
+                    <li>ex - Usa como referência a altura da fonte (x-height) do elemento</li>
+                    <li>ch - Usa como referência o espaçamento do caractere "0" (zero)</li>
+                    <li>vw - Usa como referência o comprimento (width) do viewport disponível</li>
+                    <li>vh - Usa como referência a altura (width) do viewport disponível</li>
+                    <li>vmin - Usa como referência o menor ou mínimo espaço do viewport disponível</li>
+                    <li>vmax - Usa como referência o maior ou máximo espaço do viewport disponível</li>
+                </ul>
+                <p>
+                    Exemplo (todas tem o valor 5):
+                    <br/>Teste alterando o tamanho da tela! (Clique F12 no navegador)
+                </p>
+                <ul>
+                    <li class="font-PORCT">% - Usa como referência o container o qual o elemento está inserido</li>
+                    <li class="font-EM">em - Usa como referência o tamanho da fonte (font-size) do elemento</li>
+                    <li class="font-REM">rem - Usa como referência o tamanho da fonte (font-size) do ':root'</li>
+                    <li class="font-EX">ex - Usa como referência a altura da fonte (x-height) do elemento</li>
+                    <li class="font-CH">ch - Usa como referência o espaçamento do caractere "0" (zero)</li>
+                    <li class="font-VW">vw - Usa como referência o comprimento (width) do viewport disponível</li>
+                    <li class="font-VH">vh - Usa como referência a altura (width) do viewport disponível</li>
+                    <li class="font-VMIN">vmin - Usa como referência o menor ou mínimo espaço do viewport disponível</li>
+                    <li class="font-VMAX">vmax - Usa como referência o maior ou máximo espaço do viewport disponível</li>
+                </ul>
+            </section>
+        </article>
+        <article>
+            <h2>Responsividade e Adaptabilidade</h2>
+            <p>
+                Os tópicos responsividade, adaptabilidade, acessabilidade, embora haver teorias, artigos e estudos por academias e estudiosos, alguns consideram eles como temas subjetivos.
+                <br/>Pessoalmente eu diria o tópico não é subjetivo, mas existe execuções distintas as quais ainda são estudas o métodos mais efetivos.
+                <br/>Sobre o conhecimento teoríco, recomandaria ler: 
+                <li>O livro "The design of everyday things" por Don Norman. É uma boa leitura :)</li>
+                <li>O tema "Design thinking", existe diferentes livros e artigos. Este é um bom tema de entrada para entender certas nuancias da experiência do usuário.</li>
+                <br/>Aqui vamos falar mais sobre ferramentas que auxiliam a criação de designes responsivos.
+                <br/>Unidades de tamanho são um grande fator disso (como mostrado anteriormente). Teste e avalie o método que melhor cumpre sua necessidade.
+                <br/>Vamos falar sobre outras ferramentas agora.
+            </p>
+            <section>
+                <h3>Viewport</h3>
+                <p>
+                    A viewport é a área visível do usuário de uma página da web.
+                    <br/>A janela de visualização varia de acordo com o dispositivo e será menor em um telefone celular do que em uma tela de computador.
+                    <br/>Antes dos tablets e celulares, as páginas da web eram projetadas apenas para telas de computador, e era comum que as páginas da web tivessem um design estático e um tamanho fixo.
+                    <br/>Então, quando começamos a navegar na Internet usando tablets e telefones celulares, as páginas da Web de tamanho fixo eram muito grandes para caber na janela de visualização. Para corrigir isso, os navegadores nesses dispositivos reduziram toda a página da Web para caber na tela.
+                    <br/><bold>Isso não foi perfeito! Mas uma solução rápida.</bold>
+                    <br/>
+                    <code>
+                        <mark>
+                            (<)meta name="viewport" content="width=device-width, initial-scale=1.0"(>)        
+                        </mark>
+                    </code>
+                    <br/>Segue alguns conselhos por W3Shools sobre isso:
+                    <ol>
+                        <li><strong>NÃO use elementos grandes de largura fixa</strong> - Por exemplo, se uma imagem for exibida em uma largura maior que a janela de exibição, ela poderá rolar horizontalmente. Lembre-se de ajustar esse conteúdo para caber na largura da janela de visualização.</li>
+                        <li><strong>NÃO permita que o conteúdo dependa de uma largura específica da janela de visualização para renderizar bem</strong>- Como as dimensões da tela e a largura em pixels CSS variam muito entre os dispositivos, o conteúdo não deve depender de uma largura específica da janela de visualização para renderizar bem.</li>
+                        <li><strong>Use consultas de mídia CSS para aplicar estilos diferentes para telas pequenas e grandes</strong> - Definir grandes larguras absolutas de CSS para elementos de página fará com que o elemento seja muito largo para a janela de visualização em um dispositivo menor. Em vez disso, considere usar valores relativos de largura, como largura: 100%. Além disso, tenha cuidado ao usar grandes valores de posicionamento absoluto. Isso pode fazer com que o elemento fique fora da viewport em dispositivos pequenos.</li>
+                    </ol>
+                </p>
+            </section>
+            <section>
+                <h3>Media Query</h3>
+                <p>
+                    "Media Query" não é uma classe ou id ou tag. São condições checadas da página Web, caso verdadeiras são realizadas alterações ao .CSS, podendo ser tags, classes, ids, psedo-classes, pseduo-elements e suas propriedades.
+                    <br/>Sintaxe de @media:
+                    <br/>
+                    <code>
+                        <mark>
+                            @media not|only 'mediatype' and ('expressions') {
+                                CSS-Code;
+                            }
+                            <br/>
+                        </mark>
+                    </code>
+                    <br/>Também é possível determinar uma metadata do @media e direcionar para um arquivo .css dedicado:
+                    <code>
+                        <mark>
+                            <br/>No (Head):
+                            <br/>(link rel="stylesheet" media="mediatype and|not|only (expressions)" href="print.css")
+                            <br/>
+                        </mark>
+                    </code>
+                    <br/>É possível definir algumas condições, modelo mais usado seria como esses:
+                    <br/>
+                    <code>
+                        /* Telas muito pequenas (phones, 600px and down) */
+                        <mark>@media only screen and (max-width: 600px) {...}</mark>
+                        <br/>
+                        /* Telas pequenas (portrait tablets and large phones, 600px and up) */
+                        <mark>@media only screen and (min-width: 600px) {...}</mark>
+                        <br/>
+                        /* Telas médias (landscape tablets, 768px and up) */
+                        <mark>@media only screen and (min-width: 768px) {...}</mark>
+                        <br/>
+                        /* Telas grandes (laptops/desktops, 992px and up) */
+                        <mark>@media only screen and (min-width: 992px) {...}</mark>
+                        <br/>
+                        /* Telas extra grandes (large laptops and desktops, 1200px and up) */
+                        <mark>@media only screen and (min-width: 1200px) {...}</mark>
+                        <br/>
+                    </code>
+                </p>
+                <h4>Exemplo de uma grid com media query (de 992px)</h4>
+                <div class="main-Display-Grid">
+                    <div class="grid-Item"></div>
+                    <div class="grid-Item"></div>
+                    <div class="grid-Item"></div>
+                    <div class="grid-Item"></div>
+                    <div class="grid-Item"></div>
+                    <div class="grid-Item"></div>
+                    <div class="grid-Item"></div>
+                    <div class="grid-Item"></div>
+                    <div class="grid-Item"></div>
+                    <div class="grid-Item"></div>
+                </div>
+                <p>
+                    Ao modificar o tamanho de exibição da página, nesse contexto, o display grid irá se modificar de 5 colunas para 2 colunas.
+                    <br/>Ou seja, além da adaptabilidade provida por display grid, foi acrescentado mais uma camada de adaptabilidade a esse elemento.
+                    <br/>Isso é só <bold>1 (um)</bold> exemplo, existe diversas utilidades para isso, seja criativo! 
+                </p>
+            </section>
+            <section>
+                <h3>Metodologia e Framework</h3>
+                <p>
+                    Existe e serão criadas centenas de metodologia e frameworks para Web Design.
+                    <br/>Isso é algo inevitável pois os padrão do uso e as expectativas do usuário estão em constante evoluação e modificação, tanto para bem quanto para ruim.
+                    <br/>Mesmo nessa condições, é necessário avaliar os métodos mais interessantes para o projeto ou ideia que se deseja ser executado.
+                    <br/>Bootstrap é um framework o qual é muito usado pelo quanto de elementos complexos já criados, como se fosse umua biblioteca.
+                    <br/>No entanto, nem toda ferramenta presente talvez seja de sua necessidade ou não cumpre todos os requerimentos para necessidade do projeto.
+                    <br/>Por isso, na minha opinião, aprenda a base de tudo, que nesse caso é HTML, CSS e JAVASCRIPT (nesse caso pode ser TYPESCRIPT mas isso é outra história) para então ver as ferramentas que a comunidade criou com o intuito de ajudar.
+                </p>
+            </section>
+        </article>
+    </main>
+    <hr/>
+    <footer>
+        <h4 style="text-align: center;">Criado por: Roan Nunes</h4>
+        <ul>
+            <li><a href="Aula_1_ConsideracoesIniciais.html">Aula 1 - Considerações Iniciais</a></li>
+            <li><a href="Aula_2_SeletoresEPseudos.html">Aula 2 - SeletoresEPseudos</a></li>
+            <li><a href="Aula_3_DivsEDisplays.html">Aula 3 - Div(s) e Displays</a></li>
+            <li><a href="Aula_4_GridEBoxs.html">Aula 4 - Grid e Boxs</a></li>
+            <li><a href="Aula_5_ResponsividadeEUnidades.html">Aula 5 - Responsividade e Unidades</a></li>
+            <li><a href="Aula_6_VariaveisEAnimacoes.html">Aula 6 - Variáveis e Animações</a></li>
+        </ul>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" media="screen" href="Aula_6_VariaveisEAnimacoes.css"/>
+    <title>CSS - Aula 6 - Variaveis e Animações</title>
+</head>
+<body>
+    <header>
+        <h1>Considerações inicias</h1>
+        <p>
+            Vou ser sincero, acho que até aqui, você já é capaz de produzir projetos em HTML e CSS. 
+            <br/>Caso não saiba de como fazer algo, ou usar certa propriedade ou talvez já existe um método testado, você agora possui uma base de conhecimento prático sólido.
+            <br/>A partir daqui são conhecimentos que eu pessoalmente acho interessante possuir e saber como usar.
+        </p>
+    </header>
+    <hr/>
+    <main>
+        <div class="main-Display-Grid-Variaveis">
+            <div id="Item-Grid-Variaveis-Header">
+                <h2>Variáveis!</h2>
+            </div>
+            <article id="Item-Grid-Variaveis-Conteudo">
+                <p>
+                    O próprio .CSS possui uma versão de variavéis, assim como as linguagens de programação, embora sejam mais limitadas.
+                    <br/>Toda variável deve ser declarada no ':root' e definida um valor a ela.
+                    <br/>Sua nomeclatura é distinguida com o prefíxo (--) dois traços.
+                    <br/>Pode ser utilizar várias vezes em meio ao CSS e para sua utilização, usamos 'var('--nomeVariavel')'
+                </p>
+            </article>
+            <article id="Item-Grid-Variaveis-Exemplo">
+                <h3>Exemplo:</h3>
+                <code>
+                    <mark>
+                    :root{
+                        --souVariavel: 12px;
+                    }
+                    <br/>
+                    .classeDeExemplo{
+                        width: var(--souVariavel);
+                        height: var(--souVariavel);
+                    }
+                    <br/>
+                    #IdDeExemplo{
+                        font-size: var(--souVariavel);
+                        margin: var(--souVariavel);
+                    }
+                    <br/>
+                    h7{
+                        padding: var(--souVariavel) var(--souVariavel);
+                    }
+                    <br/>
+                    </mark>
+                </code>
+            </article>
+            <article>
+                <p>
+                    Toda variável é necessário que tenha um valor definido a ela.
+                    <br/>Este valor pode ser todo ou qualquer valor aceito por alguma propriedade .CSS,<bold> no entanto</bold>, nem toda variável pode funcionar em qualquer propriedade por causa desse valor.
+                </p>
+            </article>
+            <article>
+                <p>
+                    As variáveis CSS podem ter um escopo global ou local!
+                    <br/>As variáveis globais podem ser acessadas/utilizadas em todo o documento, enquanto as variáveis locais podem ser utilizadas apenas dentro do seletor onde é declarada.
+                    <br/>Para criar uma variável com escopo global, declare-a dentro do seletor :root. O seletor :root corresponde ao elemento raiz do documento.
+                    <br/>Para criar uma variável com escopo local, declare-a dentro do seletor que vai utilizá-la.
+                </p>
+            </article>
+            <article>
+                <h3>Variáveis também podem ser manipuladas pelo Javascript, dependendo do espoco apropriado a ela!</h3>
+            </article>
+        </div>
+        <hr/>
+        <div class="main-Display-Grid-Animacao">
+            <article id="Item-Grid-Animacao-Header">
+                <h2>Animação!</h2>
+            </article>
+            <article>
+                <p>
+                    O CSS permite que a criação de animações, movimentação e modificação de um elemento sem a necessidade de Javascript ou outro Framework!
+                    <br/>No passado, essa área era predominada por arquivos do Adobe Flash, mas ele foi descontinuado em 2020. Meus pesames.
+                    <br/>A saída dele ocorreu devido a evolução do próprio HTML e CSS, e por terem surgido frameworks com mais capacidade e flexibilidade do que ele, além do surgimento da plataforma <italic>mobile</italic>.
+                </p>
+            </article>
+            <article>
+                <h3>Aqui não vamos falar de frameworks, vamos falar de CSS3 puro.</h3>
+                <p>Em primeiro, temos a regra '@keyframe', assim como média, mas com suas próprias distinções e utilizações.</p>
+            </article>
+            <article>
+                <ul>
+                    <li>@keyframes</li>
+                    <dd>É a regra, onde é especificado o código de animação</dd>
+                    <li>animation</li>
+                    <dd>Uma propriedade a qual é definida no elemento o qual ocorrerá animação. Esta abreviada para definir todas as propriedades de animação</dd>
+                    <li>animation-delay</li>
+                    <dd>É uma propriedade a qual especifica um atraso para o início de uma animação</dd>
+                    <li>animation-direction</li>
+                    <dd>É uma propriedade a qual especifica se uma animação deve ser reproduzida para frente, para trás ou em ciclos alternados</dd>
+                    <li>animation-duration</li>
+                    <dd>É uma propriedade a qual especifica quanto tempo uma animação deve levar para completar um ciclo</dd>
+                    <li>animation-fill-mode</li>
+                    <dd>É uma propriedade a qual especifica um estilo para o elemento quando a animação não está sendo reproduzida (antes de começar, depois de terminar ou ambos)</dd>
+                    <li>animation-iteration-count</li>
+                    <dd>É uma propriedade a qual especifica o número de vezes que uma animação deve ser reproduzida</dd>
+                    <li>animation-name</li>
+                    <dd>É uma propriedade a qual especifica o nome da animação @keyframes a qual vai ser utilizado no elemento.</dd>
+                    <li>animation-play-state</li>
+                    <dd>É uma propriedade a qual especifica se a animação está em execução ou pausada</dd>
+                    <li>animation-timing-function</li>
+                    <dd>É uma propriedade a qual especifica a curva de velocidade da animação</dd>
+                </ul>
+            </article>
+            <article>
+                <h3>Exemplo 1</h3>
+                <div class="box-Active-1">
+                    <h3>BOX</h3>
+                </div>
+                <h3>Exemplo 2</h3>
+                <div class="box-Active-2">
+                    <h3>BOX</h3>
+                </div>
+                <h3>Exemplo 3</h3>
+                <div class="box-Active-3 box-Animation-MoveERotate">
+                    <h3>BOX</h3>
+                </div>
+                <div class="box-Active-4 box-Animation-MoveERotate">
+                    <h3>BOX</h3>
+                </div>
+            </article>
+            <article>
+                <h3>@keyframe e Classes exemplos</h3>
+                <h4>Exemplo 1</h4>
+                <code>
+                    <mark>
+                        @keyframes simple-LefttoRight {
+                            <br/>
+                            from{
+                                left: 0%;
+                            }
+                            <br/>
+                            to{
+                                left: 84%;
+                            }
+                            <br/>
+                        }
+                        <br/>
+                        .box-Active-1{
+                            position: relative;
+                            background-color: pink;
+                            text-align: center;
+                            width:15%;
+                            padding: 15px 0px;
+                            margin: 20px 0px;
+                            animation-name: simple-LefttoRight;
+                            animation-duration: 5s;
+                        }
+                        <br/>
+                    </mark>
+                </code>
+                <h4>Exemplo 2</h4>
+                <code>
+                    <mark>
+                        @keyframes simple-GrowEColor {
+                            <br/>
+                            0%{
+                                left: 0%;
+                                width: 15%;
+                                background-color: chartreuse;
+                            }
+                            <br/>
+                            50%{
+                                left: 50%;
+                                width: 50%;
+                                background-color:darksalmon;
+                            }
+                            <br/>
+                            90%{
+                                left: 0%;
+                                width: 10%;
+                                background-color:darkgreen;
+                            }
+                            <br/>
+                            100%{
+                                left: 0%;
+                                width: 15%;
+                                background-color:chartreuse;
+                            }
+                            <br/>
+                        }
+                        <br/>
+                        <br/>
+                        .box-Active-2{
+                            position: relative;
+                            background-color: rgb(156, 199, 0);
+                            text-align: center;
+                            width: 15%;
+                            padding: 15px 0px;
+                            margin: 20px 0px;
+                            animation-name: simple-GrowEColor;
+                            animation-duration: 5s;
+                            animation-iteration-count: infinite;
+                        }
+                        <br/>
+                    </mark>
+                </code>
+                <p>
+                    Algumas anotações:
+                    <li>Perceba que há mais de um método de descrever o "fluxo do tempo" de uma animação, seja "from/to" ou "0%/100%".</li>
+                    <li>Se for uma propriedade CSS, ela provavelmente é uma propriedade 'animável'.</li>
+                    <li>É possível atribuir uma animação dado um estado específico do elemento, com psudo-classes e psudo-element.</li>
+                    <li>Atenção com a sobreposição de elementos, e a ordem dos elementos</li>
+                </p>
+            </article>
+            <article>
+                <h4>Exemplo 3</h4>
+                <code>
+                    <mark>
+                        @keyframes MoveERotate {
+                            <br/>
+                            0%{
+                                left: 0%;
+                                rotate: 0deg;
+                            }
+                            <br/>
+                            10%{
+                                left: -4%;
+                                rotate: -10deg;
+                            }
+                            <br/>
+                            30%{
+                                left: 80%;
+                                rotate: 405deg;
+                            }
+                            <br/>
+                            50%{
+                                left: 80%;
+                                rotate: 410deg;
+                            }
+                            <br/>
+                            100%{
+                                left: 0%;
+                                rotate: 0deg;
+                            }
+                            <br/>
+                        }
+                        <br/>
+                        .box-Active-3{
+                            position: relative;
+                            background-color: rgb(0, 199, 172);
+                            text-align: center;
+                            width: 15%;
+                            padding: 15px 0px;
+                            margin: 20px 0px;
+                        }
+                        <br/>
+                        .box-Active-4{
+                            position: relative;
+                            background-color: rgb(143, 0, 199);
+                            text-align: center;
+                            width: 20%;
+                            padding: 25px 0px;
+                            margin: 50px 0px;
+                        }
+                        <br/>
+                        .box-Animation-MoveERotate{
+                            animation-name: MoveERotate;
+                            animation-duration: 4s;
+                            animation-iteration-count: infinite;
+                        }
+                        <br/>
+                    </mark>
+                </code>
+            </article>
+            <article class="box-Active-4 box-Animation-MoveERotate"></article>
+            <article class="box-Active-4 box-Animation-MoveERotate"></article>
+            <article>
+                <h3>Os elementos acima são literalmente os elementos do grid. Interessante não?</h3>
+            </article>
+        </div>
+    </main>
+    <hr/>
+    <footer>
+        <h4 style="text-align: center;">Criado por: Roan Nunes</h4>
+        <ul>
+            <li><a href="Aula_1_ConsideracoesIniciais.html">Aula 1 - Considerações Iniciais</a></li>
+            <li><a href="Aula_2_SeletoresEPseudos.html">Aula 2 - SeletoresEPseudos</a></li>
+            <li><a href="Aula_3_DivsEDisplays.html">Aula 3 - Div(s) e Displays</a></li>
+            <li><a href="Aula_4_GridEBoxs.html">Aula 4 - Grid e Boxs</a></li>
+            <li><a href="Aula_5_ResponsividadeEUnidades.html">Aula 5 - Responsividade e Unidades</a></li>
+            <li><a href="Aula_6_VariaveisEAnimacoes.html">Aula 6 - Variáveis e Animações</a></li>
+        </ul>
+    </footer>
+</body>
+</html>

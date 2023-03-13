@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Aula_3_DivsEDisplays.css"/>
+    <title>CSS - Aula 3 - Div&Displays</title>
+</head>
+<body>
+    <header>
+        <h1>Div(s) e Displays</h1>
+        <p>
+            Div(s) são apenas um tipo de tag de HTML que define uma divisão/container genérico, semelhante conceitualemnte a um article e um section.
+            <br/>No entanto, div(s) são tag genéricas, flexíveis, containers o qual o desenvolvedor define o que ela será, fará e se comportará.
+            <br/>Dito isso, o maior desafio ao manipular Div é como elas se comportam na página e sua relação com outros elementos, incluindo como ela são exibidas ou "displayed".
+            <br/>Sendo assim, temos a propriedade CSS denominada "Display", destacando seguintes valores que podem ser atribuidos:
+            <li>display: block</li>
+            <li>display: inline</li>
+            <li>display: inline-block</li>
+            <li>display: none</li>
+            <li>display: flex</li>
+            <li>display: grid</li>
+            <br/>Há outros métodos de display, os quais podem encontrar seguinte link: <a href="https://www.w3schools.com/cssref/pr_class_display.php">Lista de valores a Display por W3S</a>
+            <br/>Cada elemento HTML possui um método específico de display, o qual pode ser modificado. Div por padrão assume o "display: block".
+            <br/>Para deixar claro nos exemplo, o "body" está estilizado para assumir 75% do comprimento da página (a distância horizontal) e margens para centralizar.
+            <br/>Toda Div caso não tratada especificamente, irá percorrer todo o "body";
+            <br/>Devido a sua complexidade, métodos de se comportar, interações com outros elementos e a presença em todo projeto que irá ocorrer, cada display será explicado separadamente.
+        </p>
+    </header>
+    <hr/>
+    <main>
+        <article>
+            <section>
+                <h2>Display: block</h2>
+                <p>
+                    "Display: block" é a configuração padrão de todo elemento Div.
+                    <br/>Por definição o valor "block" exibe um elemento como um elemento de bloco (como (p)). Começa em uma nova linha e ocupa toda a largura
+                    <br/>Ao atribuir display: block, ele atribui ao container um width e height distintos os quais podem ser modificados.
+                </p>
+                <code>
+                    <mark>
+                        .container-Block{
+                            display: block;
+                            background-color: darksalmon;
+                            height:200px;
+                        }
+                    </mark>
+                </code>
+                <div>
+                    <div class="container-Block">
+                        Eu sou um display: block;
+                    </div>
+                    <div class="container-Block">
+                        Eu sou um display: block;
+                    </div>
+                    <div class="container-Block">
+                        Eu sou um display: block;
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h2>Display: inline</h2>
+                <p>
+                    Por definição o valor "inline" exibe um elemento como um elemento embutido (como (span)). Quaisquer propriedades de altura e largura não terão efeito.
+                    <br/>Ao atribuir display: inline, ele não atribui ao container um width e height, e não podem ser modificados.
+                    <br/>Inline assumi o espaço necessário para conter seu conteúdo.
+                </p>
+                <code>
+                    <mark>
+                        .container-Inline{
+                            display: inline;
+                            background-color: aquamarine;
+                            margin: 10px;
+                            width: 200px;
+                            height:200px;
+                        }
+                    </mark>
+                </code>
+                <div>
+                    <div class="container-Inline">
+                        Eu sou um display: inline;
+                    </div>
+                    <div class="container-Inline">
+                        Eu sou um display: inline;
+                    </div>
+                    <div class="container-Inline">
+                        Eu sou um display: inline;
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h2>Display: inline-block</h2>
+                <p>
+                    Por definição o valor "inline-block" exibe um elemento como um contêiner de bloco de nível embutido. O próprio elemento é formatado como um elemento embutido, mas você pode aplicar valores de altura e largura.
+                    <br/>Ao atribuir display: inline-block, ele atribui ao container um width e height, no entanto, seu comportamento é como um de elemento de "display: inline"
+                    <br/>Inline assumi o espaço necessário para conter seu conteúdo.
+                </p>
+                <code>
+                    <mark>
+                        .container-Inline-Block{
+                            display: inline-block;
+                            background-color: rgb(102, 99, 255);
+                            margin: 10px;
+                            width: 200px;
+                            height:200px;
+                        }
+                    </mark>
+                </code>
+                <div>
+                    <div class="container-Inline-Block">
+                        Eu sou um display: inline-block;
+                    </div>
+                    <div class="container-Inline-Block">
+                        Eu sou um display: inline-block;
+                    </div>
+                    <div class="container-Inline-Block">
+                        Eu sou um display: inline-block;
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h2>Display: none</h2>
+                <p>
+                    Por definição o valor "none" remove a exibição do elemento por completo.
+                    <br/>Ao atribuir display: none o próprio elemento e seus adjacentes se comportam como ele não existe.
+                    <br/>Existe uma diferença entre "display: none" e "visibility: hidden". Um o remove da exibição e seu comportamento, o outro remove apenas sua visibilidade mantendo o comportamento de exibição.
+                </p>
+                <code>
+                    <mark>
+                        .container-Inline-Block{
+                            display: inline-block;
+                            background-color: rgb(102, 99, 255);
+                            margin: 10px;
+                            width: 200px;
+                            height:200px;
+                        }
+                        .container-None{
+                            display: none;
+                            background-color: rgb(0, 255, 76);
+                            margin: 10px;
+                            width: 200px;
+                            height:200px;
+                        }
+                    </mark>
+                </code>
+                <div>
+                    <div class="container-Inline-Block">
+                        Eu sou um display: inline-block;
+                    </div>
+                    <div class="container-None">
+                        Eu sou um display: inline-block;
+                    </div>
+                    <div class="container-Inline-Block">
+                        Eu sou um display: inline-block;
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h2>Display: flex</h2>
+                <p>
+                    Por definição o valor "flex" é um container responsivo que permite elementos dentro dele crescer ou minimizar.
+                    <br/>Ao atribuir display: flex o container assumi inicialmente propriedades semelhantes ao block.
+                    <br/>A diferença entre os outros métodos é sua adaptabilidade ao espaço delimitado e tamanho da tela exibida.
+                    <br/>Em um "display: flex" ou "flex container" ele possui as seguintes propriedades específicas:
+                    <li>flex-direction - A propriedade flex-direction define em qual direção o contêiner deseja empilhar os itens flexíveis.</li>
+                    <li>flex-wrap - A propriedade flex-wrap especifica se os itens flexíveis devem ser encapsulados ou não.</li>
+                    <li>flex-flow - A propriedade flex-flow é uma propriedade abreviada para definir as propriedades flex-direction e flex-wrap.</li>
+                    <li>justify-content - A propriedade justify-content é usada para alinhar horizontalmente os itens flexíveis</li>
+                    <li>align-items - A propriedade align-items é usada para alinhar verticalmente os itens flexíveis</li>
+                    <li>align-content - A propriedade align-content é usada para reposicionar os elementos dentro do container flex por um método diferente.</li>
+                    <br/>Pessoalmente recomendo o seguinte:
+                    <li>Ao utilizar um container flex (classe ou id), crie classes distintas ou modificadoras que serão os elementos dentro dele para melhor utilização do display: flex.</li>
+                    <li>Ao utilizar um container flex, teste o site em múltiplas resolução para verificar o fluxo do site e as interações que ele tem com outros elementos.</li>
+                </p>
+                <code>
+                    <mark>
+                        .container-Flex-Factory-New{
+                            display: flex;
+                            background-color: rgb(243, 255, 75);
+                            margin: 10px;
+                        }
+                        <br/>
+                        .container-Flex-Mod{
+                            display: flex;
+                            background-color: rgb(255, 75, 225);
+                            margin: 10px;
+                            width: 500px;
+                            height: 500px;
+                        }
+                        <br/>
+                        .cflex-Perfect-Center{
+                            height: 300px;
+                            justify-content: center;
+                            align-items: center;
+                        }
+                        <br/>
+                        .cflex-Elemento-Prenchedor{
+                            align-content: stretch;
+                        }
+                        <br/>
+                        .cflex-Elemento-Prenchedor > div{
+                            height: auto;
+                        }
+                        <br/>
+                    </mark>
+                </code>
+                <div class="container-Flex-Factory-New"></div>
+                <p>Teoricamente aqui em cima há uma div com display: flex aqui em cima, mas está vazia, logo ela apenas está ocupando seu espaço de block</p>
+                <div class="container-Flex-Factory-New">
+                    <div class="container-Inline-Block">
+                        Eu sou um display: inline-block;
+                    </div>
+                    <div class="container-Inline-Block">
+                        Eu sou um display: inline-block;
+                    </div>
+                    <div class="container-Inline-Block">
+                        Eu sou um display: inline-block;
+                    </div>
+                </div>
+                <p>Segue outro exemplo, agora limitando o espaço do container-flex</p>
+                <div class="container-Flex-Mod">
+                    <div class="container-Inline-Block">
+                        Eu sou um display: inline-block;
+                    </div>
+                    <div class="container-Inline-Block">
+                        Eu sou um display: inline-block;
+                    </div>
+                    <div class="container-Inline-Block">
+                        Eu sou um display: inline-block;
+                    </div>
+                </div>
+                <p>Um exemplo usando as propriedades de justify-content e align-items para centralizar os elementos independente da tela</p>
+                <div class="container-Flex-Factory-New cflex-Perfect-Center">
+                    <div class="container-Inline-Block">
+                        Eu sou um display: inline-block;
+                    </div>
+                    <div class="container-Inline-Block">
+                        Eu sou um display: inline-block;
+                    </div>
+                    <div class="container-Inline-Block">
+                        Eu sou um display: inline-block;
+                    </div>
+                </div>
+                <p>Segue outro exemplo, agora modificado por align-content. Mesmo essa propriedade ser do container, ele afeta seus elementos dado a possibilidade.</p>
+                <div class="container-Flex-Mod cflex-Elemento-Prenchedor">
+                    <div class="container-Inline-Block">
+                        Eu sou um display: inline-block;
+                    </div>
+                    <div class="container-Inline-Block">
+                        Eu sou um display: inline-block;
+                    </div>
+                    <div class="container-Inline-Block">
+                        Eu sou um display: inline-block;
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h2>Display: grid</h2>
+                <p>
+                    Por definição o valor "grid" oferece um sistema de layout baseado em grade, com linhas e colunas, facilitando o design de páginas da Web sem a necessidade de flutuações e posicionamento.                 
+                    <br/>Assim como "display: flex", um container grid tem propriedades específicas e tem controle sobre como os elementos inseridos nele.
+                    <br/>Este tópico receberá sua aula dedicada, pois este método de display não é algo "plug and play". Requer um planejamento pensado nele.
+                    <br/>O objetivo dele é dar um layout estruturado e permitir a responsividade dele.
+                    <br/>Segue um breve exemplo do que seria ele:
+                    <br/>
+                </p>
+                <code>
+                    <mark>
+                        .grid-container {
+                            display: grid;
+                            grid-template-columns: 80px 200px auto 30px;
+                            gap: 10px;
+                            background-color: #2196F3;
+                            padding: 10px;
+                        }
+                        <br/>
+                        .grid-container > div {
+                            background-color: rgba(255, 255, 255, 0.8);
+                            text-align: center;
+                            padding: 20px 0;
+                            font-size: 30px;
+                        }
+                        <br/>
+                    </mark>
+                </code>
+                <div class="grid-container">
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                    <div>5</div>
+                    <div>6</div>
+                    <div>7</div>
+                    <div>8</div>
+                    <div>9</div>
+                    <div>10</div>
+                </div>
+                <p>
+                    Perceba que somente através do container, foi capaz de estrutura os elementos de forma bem robusta mantendo sua responsividade.
+                    </br>Para acrescentar sua responsividade, adicionamos uma MEDIA QUERY (falaremos no futuro), para melhor adaptação.
+                </p>
+            </section>
+        </article>
+    </main>
+    <hr/>
+    <footer>
+        <h4 style="text-align: center;">Criado por: Roan Nunes</h4>
+        <ul>
+            <li><a href="Aula_1_ConsideracoesIniciais.html">Aula 1 - Considerações Iniciais</a></li>
+            <li><a href="Aula_2_SeletoresEPseudos.html">Aula 2 - SeletoresEPseudos</a></li>
+            <li><a href="Aula_3_DivsEDisplays.html">Aula 3 - Div(s) e Displays</a></li>
+            <li><a href="Aula_4_GridEBoxs.html">Aula 4 - Grid e Boxs</a></li>
+            <li><a href="Aula_5_ResponsividadeEUnidades.html">Aula 5 - Responsividade e Unidades</a></li>
+            <li><a href="Aula_6_VariaveisEAnimacoes.html">Aula 6 - Variáveis e Animações</a></li>
+        </ul>
+    </footer>
+</body>
+</html>
