@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" media="screen" href="Aula_Javascript_Style_Base.css">
+    <title>Aula 2 - Sintaxe E Estrutura</title>
+</head>
+<body>
+    <header>
+        <h1>Sintaxe e Estrutura</h1>
+        <p>
+            Javascript é uma linguagem de programação interpretada, ou seja, possui toda complexidade de uma linguagem de programação mas a execução difere de uma linguagem que é compilada.
+            <br/>Javascript possui sua própria nomeclatura (ou linguagem) de realizar comandos e estruturar funções. Ele pode ser executado independente da presença de HTML ou/e CSS.
+            <br/>Com passar dos anos, Javascript tornou realidade a existencia de "Webapps", aplicações completas que rodam no próprio navegador, ou solicitam comandos/funções ao servidor realizar para certa aplicação.
+        </p>
+    </header>
+    <hr/>
+    <main>
+        <article>
+            <h2>Sintaxe</h2>
+            <p>
+                Temos uma série de elementos em Javascript.
+                <br/>Javascript é uma linguagem baseada no Inglês americano, então segue os termos usados:
+            </p>
+            <ul>
+                <li>Values (ou Valores)</li>
+                <li>Variáveis (ou Variables)</li>
+                <li>Operador (ou Operators)</li>
+                <li>Keyword (ou Palavra-chave)</li>
+                <li>Function (ou Funções)</li>
+                <li>Comments (ou Comentário)</li>
+            </ul>
+            <p>
+                Segue algumas regras de formatação:
+                <ul>
+                    <li>Números são escritos sem ou com decimais.</li>
+                    <dd>[EXEMPLO] 10.1 ; 25 ; 47 ; 56,32 ; 146416947,13;</dd>
+                    <li>Textos (ou Strings) são escritas dentro de aspas duplas ("") ou aspas simples ('');</li>
+                    <dd>[EXEMPLO] "Olá" ; 'Fernando estava aqui!' ; "Quem sou eu" ; 'Número 37 é o ganhador'.</dd>
+                    <li>JavaScript é 'case sensitive', isto é, ele faz diferenciação do caractere minúsculo e maiúsculo.</li>
+                    <dd>[EXEMPLO] 'nomeProfissional' é diferente de 'nomeprofissional';</dd>
+                    <li>Javascript não aceita o hifen (-), diferente de HTML e CSS.</li>
+                    <li>Após cada linha de comando, ela é finalizada por ponto e virgula (;).</li>
+                </ul>
+            </p>
+        </article>
+        <hr/>
+        <article>
+            <h2>Estrutura</h2>
+            <p>
+                Cada elemento presente no Javascript possui uma estrutura para seu uso.
+                <br>
+            </p>
+            <ul>
+                <li>Values (ou Valores)</li>
+                <li>Variables (ou Variáveis)</li>
+                <li>Operators (ou Operadores)</li>
+                <li>Keyword (ou Palavra-chave)</li>
+                <li>Function (ou Funções)</li>
+                <li>Comments (ou Comentário)</li>
+            </ul>
+            <section>
+                <h3>Values (ou Valores)</h3>
+                <p>
+                    São os valores númericos definidos.
+                    <br/>Strings também podem ser pré-definidas, mas usualmente são variáveis.
+                    <br/>Segue os exemplos:
+                </p>
+                <ul>
+                    <li>10</li>
+                    <li>47</li>
+                    <li>56,32</li>
+                    <li>146416947,13</li>
+                    <li>"Eu sou uma string definida"</li>
+                    <dd>Isso é o exemplo de uma string definida.</dd>
+                </ul>
+            </section>
+            <section>
+                <h3>Variables (ou Variáveis)</h3>
+                <p>
+                    Variáveis são containers que armazenam dados na memória.
+                    <br/>Em Javascript, para a declaração de uma variável podemos utilizar: 'var', 'let' ou 'cont';
+                    <br/>Entre eles, tais possuem objetivos diferentes, será explicado em um futuro momento;
+                    <br/>Segue exemplos de seu uso:
+                </p>
+                <ul>
+                    <li>var x = 10;</li>
+                    <li>let y; y = 47;</li>
+                    <li>const raio = 56,32;</li>
+                    <li>var u, carro, horarioPartida;</li>
+                    <dd>É possível declarar várias variaveis em uma única linha.</dd>
+                </ul>
+            </section>
+            <section>
+                <h3>Operators (ou Operadores)</h3>
+                <p>
+                    Os Operadores matemáticos usualmente encontrados numa calculadora, estão presentes em operadores de programação.
+                    No entanto, há mais operadores do que somente os matemáticos. Sua distinção normalmente é a combinação de vários simbolos matemáticos para sinalizar outra operação.
+                    <br/>Os tipos de operadores de programação seriam:
+                </p>
+                <ul>
+                    <li>Operadores aritméticos</li>
+                    <dd>São operadores matemáticos que sinalizam alguma operação de cálculo.</dd>
+                    <li>Operadores de atribuição</li>
+                    <dd>Semelhantes aos operadores matemáticos, no entanto acrescentam a função de sinalizar a atribuição de um valor ao outro.</dd>
+                    <dd>[EXEMPLO] x = y ; x += y (que seria igual a (x = x + y)) ; x /= y (que seria igual a (x = x / y)) ;</dd>
+                    <li>Operadores de Comparação</li>
+                    <dd>Utilizados geralmente por funções específicas, com objetivo de comparar dois valores dado um contexto.</dd>
+                    <dd>[EXEMPLO] x == y (x é igual a y ?) ; x != y (x é diferente de y ?) ; x > y (x é maior que y ?) ;</dd>
+                    <li>Operadores Lógicos</li>
+                    <dd>Utilizados geralmente por funções específicas, sinalizar um contexto ou contextos</dd>
+                    <dd>[EXEMPLO] while(x!=y || x > 0) descreveria (Enquanto x for diferente de y OU x for maior que 0) </dd>
+                    <li>Operadores de Tipo</li>
+                    <dd>Sinalizam ou verificam o tipo ou instanciamento de uma variável ou função</dd>
+                </ul>
+                <p>
+                    Veremos mais sobre estes os operadores ao longo das aulas sendo usados dado a necessidade.
+                    <br/>No entanto, aqui especificamente apenas será mostrado os aritméticos presentes em Javascript.
+                    <br/>Eles seriam:
+                </p>
+                <ul>
+                    <li>(+) - Soma ou somatório</li>
+                    <li>(-) - Subtração</li>
+                    <li>(*) - Multiplicação</li>
+                    <li>(/) - Divisão</li>
+                    <li>(**) - Exponêncial</li>
+                    <li>(%) - Retorna o resto de uma divisão</li>
+                </ul>
+                <p>
+                    Através de tais operadores é possível criar expressões.
+                    Quase todo método de expressar uma equação matemática pode ser descrita em código como expressões.
+                    <br/>Algumas delas seriam:
+                </p>
+                <ul>
+                    <li>1 + 1;</li>
+                    <li>27 - 11;</li>
+                    <li>11 + 3 * 2;</li>
+                    <li>(24 - 6) / 3;</li>
+                    <li>10 / 2;</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Keyword (ou Palavra-chave)</h3>
+                <p>
+                    São comandos prédefinidos pela linguagem o qual possuem uma nomeclatura própria e em alguns casos requerem a atribuição de valores.
+                    Ao longo das aulas será visto vários keyword sendo usado para realizar algumas função.
+                    <br/>Algumas delas seriam:
+                </p>
+                <ul>
+                    <li>let - Declara um bloco de variáveis.</li>
+                    <li>var - Declara uma variável</li>
+                    <li>for - Declara a marcação de um loop, determinados por um conjunto de declarações</li>
+                    <li>switch - Declara um bloco de casos dado um contexto, e um tratamento para cada caso especificado</li>
+                    <li>function - Declara uma função</li>
+                    <li>...</li>
+                </ul>
+                <p>
+                    Existem vários keywords com funções específicas. Não seram mostrados todas elas, algumas serão destacadas ao longo das aulas.
+                </p>
+            </section>
+            <section>
+                <h3>Function (ou Funções)</h3>
+                <p>
+                    São blocos de instruções (ou comandos) que podem ser utilizados ao longo do código, sejam eles prédefinidos
+                    <br/>Iremos falar mais sobre em outra aula, no entanto segue a estrutura básica de uma função:
+                </p>
+                <code>
+                    <mark>
+                        function nomeFuncao (argumento1, argumento2){
+                            return resposta;
+                        }
+                    </mark>
+                </code>
+            </section>
+            <section>
+                <h3>Comments (ou Comentário)</h3>
+                <p>
+                    São blocos de texto os quais não são interpretados pela linguagem, possuem objetivo de realizar anotações ou explicar em texto corrido o que está a ocorrer criadas pelo Desenvolvedor.
+                    <br/>É importante a criação de comentários em meio ao código, para organiza ele e caso nessecidade explicar o que está a ocorrer.
+                    <br/>Todo comentário é iniciado por (//) duas contrabarras ou pela contenção através de (/* */): 
+                </p>
+                <code>
+                    <mark>
+                        //Isso é um comentário em Javascript.
+                        <br/>//Diferente de HTML e CSS!
+                    </mark>
+                </code>
+                <code>
+                    <mark>
+                        <br/>/* 
+                        <br/>Isso é um comentário em Javascript!
+                        <br/>Mais semelhante ao usado em CSS.
+                        <br/>*/
+                    </mark>
+                </code>
+            </section>
+        </article>
+    </main>
+    <hr/>
+    <h4 style="text-align: center;">Criado por: Roan Nunes</h4>
+    <footer style="display: flex;">
+        <ul style="width: 30%;">
+            <li><a href="/AWD_Aulas_HTML/Aula_1_BaseDeTudo.html">Aula 1 - Base de Tudo</a></li>
+            <li><a href="/AWD_Aulas_HTML/Aula_2_HeadersEParagrafos.html">Aula 2 - Headers e Parágrafos</a></li>
+            <li><a href="/AWD_Aulas_HTML/Aula_3_ListasETabelas.html">Aula 3 - Listas e Tabelas</a></li>
+            <li><a href="/AWD_Aulas_HTML/Aula_4_HyperlinkEImagens.html">Aula 4 - Hyperlink e Imagens</a></li>
+            <li><a href="/AWD_Aulas_HTML/Aula_5_MetadataEImports.html">Aula 5 - Metadata e Imports</a></li>
+            <li><a href="/AWD_Aulas_HTML/Aula_6_Forms.html">Aula 6 - Forms ou Formulários</a></li>
+        </ul>
+        <ul style="width: 30%;">
+            <li><a href="/AWD_Aulas_CSS/Aula_1_ConsideracoesIniciais.html">Aula 1 - Considerações Iniciais</a></li>
+            <li><a href="/AWD_Aulas_CSS/Aula_2_SeletoresEPseudos.html">Aula 2 - SeletoresEPseudos</a></li>
+            <li><a href="/AWD_Aulas_CSS/Aula_3_DivsEDisplays.html">Aula 3 - Div(s) e Displays</a></li>
+            <li><a href="/AWD_Aulas_CSS/Aula_4_GridEBoxs.html">Aula 4 - Grid e Boxs</a></li>
+            <li><a href="/AWD_Aulas_CSS/Aula_5_ResponsividadeEUnidades.html">Aula 5 - Responsividade e Unidades</a></li>
+            <li><a href="/AWD_Aulas_CSS/Aula_6_VariaveisEAnimacoes.html">Aula 6 - Variáveis e Animações</a></li>
+        </ul>
+        <ul style="width: 30%;">
+            <li><a href="/AWD_Aulas_JAVASCRIPT/Aula_1_LiveJavaEcmaScript.html">Aula 1 - Live/Java/EcmaScript</a></li>
+            <li><a href="/AWD_Aulas_JAVASCRIPT/Aula_2_SintaxeEEstrutura.html">Aula 2 - Sintaxe E Estrutura</a></li>
+            <li><a href="/AWD_Aulas_JAVASCRIPT/Aula_3_VariaveisEFuncoes.html">Aula 3 - Variaveis e Funções</a></li>
+            <li><a href="/AWD_Aulas_JAVASCRIPT/Aula_4_ObjetosEEventos.html">Aula 4 - Objetos e Eventos</a></li>
+            <li><a href="/AWD_Aulas_JAVASCRIPT/Aula_5_DOM.html">Aula 5 - The DOM</a></li>
+            <li><a href="/AWD_Aulas_JAVASCRIPT/Aula_6_BoasPraticas.html">Aula 6 - Boas Praticas</a></li>
+        </ul>
+    </footer>
+</body>
+</html>

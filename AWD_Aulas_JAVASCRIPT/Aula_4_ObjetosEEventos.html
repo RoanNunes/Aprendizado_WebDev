@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" media="screen" href="Aula_Javascript_Style_Base.css">
+    <title>Aula 4 - Objetos e Eventos</title>
+</head>
+<body>
+    <header>
+        <h1>Objetos e Eventos</h1>
+        <p>
+            Semelhante a ideia de funções, a de agrupar instruções para reutilizar, objetos agrupam variáveis de contexto semelhante para melhor referênciar em meio ao código. 
+            <br/>E eventos são formas do Javascript fazer uma página HTML "reagir" dado um contexto, semelhante a 'pseudo-classes' de CSS.
+            <br/>Embora esses temas serem distintos, são formas de melhor cordenar o Javascript e suas interações com HTML e CSS.
+        </p>
+    </header>
+    <hr/>
+    <main>
+        <article>
+            <h2>Objetos</h2>
+            <p>
+                Objetos são conjutos de variáveis (ou de dados) homogênios ou heterogênios.
+                <br/>Além de variáveis, objetos podem conter funções próprias as quais só podem ser utilizadas pelo próprio objeto.
+                <br/>Um objeto é declarado da mesma forma que uma variável, no entanto, seus atributos são declarados de forma diferente.
+                <br/>Toda propriedade de um objeto é dado um nome e um valor, definido por (:) dois pontos.
+                <br/>Cada propriedade é separada por (,) vírgula, diferente de uma variável normal que é (;) ponto e vírgula.
+                <br/>É boa prática que toda função dentro de um objeto retorne algum valor, ou seja, ela não seja do tipo void (tipo vazio, sem retorno).
+                <br/>Segue alguns modelos:
+                <br/>
+                <code>
+                    <mark>
+                        let pessoa = {
+                            <br/> primeiroNome: "Joey",
+                            <br/> segundoNome: "Nostradamos",
+                            <br/> idade: 74,
+                            <br/> altura: 1.72
+                            <br/>
+                        }
+                        <br/>
+                        let carro = {
+                            <br/> id: 00001,
+                            <br/> marca: "Toyota",
+                            <br/> qntPortas: 4,
+                            <br/> força: 1.1,
+                            <br/> posicao_x: 0,
+                            <br/> posicao_y: 0,
+                            <br/> acelerar: function (){
+                                <br/> this.posicao_x += 1;
+                                <br/> return: posicao_x;
+                            }
+                            <br/>
+                        }
+                    </mark>
+                </code>
+            </p>
+            <script>
+                let pessoa = {
+                    primeiroNome: "Joey",
+                    segundoNome: "Nostradamos",
+                    idade: 74,
+                    altura: 1.72
+                };
+                let carro = {
+                    id: "00001",
+                    marca: "Toyota",
+                    qntPortas: 4,
+                    torque: 1.1,
+                    posicao_x: 0,
+                    posicao_y: 0,
+                    acelerar: function (){
+                        this.posicao_x += 1;
+                        return (posicao_x);
+                    }
+                }
+                function imprimirCarro(){
+                    document.getElementById('ContainerExemplo-1').innerHTML =
+                        "<br/>Carro ID: " + carro.id
+                        + "<br/>Carro Marca: " + carro.marca
+                        + "<br/>Carro Quantidade de Portas: " + carro.qntPortas
+                        + "<br/>Carro Torque: " + carro.torque
+                        + "<br/>Carro Posição: (" + carro.posicao_x + "," + carro.posicao_y + ")";
+                }
+            </script>
+            <h3>Exemplo 1</h3>
+            <p>Realizar um exemplo prático com os objetos mostrados anteriormente.</p>
+            <div id="ContainerExemplo-1"></div>
+            <button type="button" onclick="document.getElementById('ContainerExemplo-1').innerHTML += '<h4>Nome: ' + pessoa.primeiroNome + ' ' + pessoa.segundoNome + '</h4>'">Imprimir nome da pessoa</button>
+            <button type="button" onclick="document.getElementById('ContainerExemplo-1').innerHTML += '<h4>Idade: ' + pessoa.idade + '</h4>'">Imprimir idade da pessoa</button>
+            <button type="button" onclick="imprimirCarro()">Imprimir carro</button>
+            <button type="button" onclick="carro.acelerar()">Acelerar carro</button>
+        </article>
+        <article>
+            <h2>Eventos</h2>
+            <p>
+                Eventos são ocorrências que podem ocorrer na página Web. Ele se assemelham ao pseudo-classes de CSS.
+                <br/>Diferente de pseudo-classes, eventos em Javascript estão relacionado ao 'DOM' ou ao documento HTML como um todo, incluindo cada interação e processo ocorrido nele.
+                <br/>Para todo evento é necessário um "event listener", uma verficação que é constatemente feita se o caso foi realizado e tratar de acordo.
+                <br/>Existe uma série de tipos de eventos, como iterações, verificações, carregamento, tratamento de erro e etc.
+                <br/>Formas como um "event listener" pode se demonstrar em HTML:
+                <code>
+                    <mark>
+                        <br/> (button type="button" onclick="imprimirCarro()")Imprimir carro(/button)
+                        <br/> (div onmouseover="executaFuncao()")(/div)
+                        <br/> (h1 onkeypress="executaFuncao()")(/h1)
+                    </mark>
+                </code>
+                <br/>Formas como um "event listener" pode se demonstrar em JAVASCRIPT:
+                <code>
+                    <mark>
+                        <br/> button.addEventListener("click", imprimirCarro);
+                        <br/> div.addEventListener("onmouseover", executaFuncao);
+                        <br/> div.addEventListener("onmouseover", (evt) => executaFuncao(param1, param2, ...));
+                        <br/> div.addEventListener("onmouseover", executaFuncao.bind(this, param1, param2, ...));
+                    </mark>
+                </code>
+                <br/>Perceba que em 'addEventListener' possui um método específico para executar a função, incluindo seu método de escrita.
+                <br/>Uma alternativa para executar uma função com parametros dentro de um EventListener seria div.addEventListener("onmouseover", (evt) => executaFuncao(param1, param2, ...))
+                <br/>Existe uma lista grande de todo evento que é identificado pelo DOM.
+                <br/>Esses eventos podem ser etapas no processo de carregar uma página, iterações possíveis com o mouse, iterações possíveis com o toque e outros.
+                <br/>Segue alguns mais comuns:
+            </p>
+            <ul>
+                <li>onchange</li>
+                <dd>qualquer modificação de um elemento HTML</dd>
+                <li>onclick</li>
+                <dd>O mouse do usuário clica um elemento HTML</dd>
+                <li>onmouseover</li>
+                <dd>O mouse do usuário entra ou 'sobrevoa' de um elemento HTML</dd>
+                <li>onmouseout</li>
+                <dd>O mouse do usuário sai de um elemento HTML</dd>
+                <li>onkeydown</li>
+                <dd>O usuário pressiona uma tecla</dd>
+                <li>onload</li>
+                <dd>O navegador termina de carregar a página.</dd>
+            </ul>
+            <br/>Lista completa se encontra em: <a href="https://www.w3schools.com/jsref/dom_obj_event.asp">Lista de Eventos DOM - W3Shcools</a>
+        </article>
+    </main>
+    <hr/>
+    <h4 style="text-align: center;">Criado por: Roan Nunes</h4>
+    <footer style="display: flex;">
+        <ul style="width: 30%;">
+            <li><a href="/AWD_Aulas_HTML/Aula_1_BaseDeTudo.html">Aula 1 - Base de Tudo</a></li>
+            <li><a href="/AWD_Aulas_HTML/Aula_2_HeadersEParagrafos.html">Aula 2 - Headers e Parágrafos</a></li>
+            <li><a href="/AWD_Aulas_HTML/Aula_3_ListasETabelas.html">Aula 3 - Listas e Tabelas</a></li>
+            <li><a href="/AWD_Aulas_HTML/Aula_4_HyperlinkEImagens.html">Aula 4 - Hyperlink e Imagens</a></li>
+            <li><a href="/AWD_Aulas_HTML/Aula_5_MetadataEImports.html">Aula 5 - Metadata e Imports</a></li>
+            <li><a href="/AWD_Aulas_HTML/Aula_6_Forms.html">Aula 6 - Forms ou Formulários</a></li>
+        </ul>
+        <ul style="width: 30%;">
+            <li><a href="/AWD_Aulas_CSS/Aula_1_ConsideracoesIniciais.html">Aula 1 - Considerações Iniciais</a></li>
+            <li><a href="/AWD_Aulas_CSS/Aula_2_SeletoresEPseudos.html">Aula 2 - SeletoresEPseudos</a></li>
+            <li><a href="/AWD_Aulas_CSS/Aula_3_DivsEDisplays.html">Aula 3 - Div(s) e Displays</a></li>
+            <li><a href="/AWD_Aulas_CSS/Aula_4_GridEBoxs.html">Aula 4 - Grid e Boxs</a></li>
+            <li><a href="/AWD_Aulas_CSS/Aula_5_ResponsividadeEUnidades.html">Aula 5 - Responsividade e Unidades</a></li>
+            <li><a href="/AWD_Aulas_CSS/Aula_6_VariaveisEAnimacoes.html">Aula 6 - Variáveis e Animações</a></li>
+        </ul>
+        <ul style="width: 30%;">
+            <li><a href="/AWD_Aulas_JAVASCRIPT/Aula_1_LiveJavaEcmaScript.html">Aula 1 - Live/Java/EcmaScript</a></li>
+            <li><a href="/AWD_Aulas_JAVASCRIPT/Aula_2_SintaxeEEstrutura.html">Aula 2 - Sintaxe E Estrutura</a></li>
+            <li><a href="/AWD_Aulas_JAVASCRIPT/Aula_3_VariaveisEFuncoes.html">Aula 3 - Variaveis e Funções</a></li>
+            <li><a href="/AWD_Aulas_JAVASCRIPT/Aula_4_ObjetosEEventos.html">Aula 4 - Objetos e Eventos</a></li>
+            <li><a href="/AWD_Aulas_JAVASCRIPT/Aula_5_DOM.html">Aula 5 - The DOM</a></li>
+            <li><a href="/AWD_Aulas_JAVASCRIPT/Aula_6_BoasPraticas.html">Aula 6 - Boas Praticas</a></li>
+        </ul>
+    </footer>
+</body>
+</html>

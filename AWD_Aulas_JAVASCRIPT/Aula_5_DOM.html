@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" media="screen" href="Aula_Javascript_Style_Base.css">
+    <title>Aula 5 - The DOM</title>
+</head>
+<body>
+    <header>
+        <h1 class="Titulo">The DOM</h1>
+        <p>
+            Aqui sobre o DOM e exclusivamente ele, pois ele é lirealmente todo arquivo criado pelo navegador e aquele que o Javascript tem capacidade de comunicar-se e manipular.
+            <br>O DOM é uma sigla de "Document Object Model", seu semelhante em português seria "Modelo de Documento por Objetos".
+            <br/>O DOM é a camada interface entre a linguagem de programação e o HTML/CSS neste contexto.
+            <br/>O DOM não é algo exclusivo da linguagem Javascript, apenas é um metodo geralmente usado em desenvolvimento Web.
+            <br/>Segue um exemplo de um documento no modelo "Document Object Model" (disponibilizada por W3Schools):
+            <img src="https://www.w3schools.com/js/pic_htmltree.gif"/> 
+            <br/>Até o momento (2023), todo navegador interpreta uma página web desta forma.
+            <br/>O navegador interpreta a página como um formato tipo árvore, a qual não é necessáriamente binária.
+            <br/>Uma interpretação interessante do que seria o DOM seria a seguinte: DOM é a linguagem comum entre o HTML/CSS e Javascript e como eles se comunicam entre si.
+        </p>
+    </header>
+    <hr/>
+    <main>
+        <article>
+            <h2 class="Titulo">A estrutura do DOM</h2>
+            <p>
+                Como dito anteriormente, o DOM é uma interface entre um documento e uma (ou mais) linguagem de programação.
+                <br/>Ele pode ser seguimentado em 3 (três) partes:
+            </p>
+            <ul>
+                <li>CORE DOM - É o modelo padrão de qualquer tipo de documento (que usa esse modelo);</li>
+                <li>XML DOM - É o modelo padrão de todo documento XML;</li>
+                <li>HTML DOM - É o modelo padrão de todo documento HTML</li>
+            </ul>
+            <h3>HTML DOM</h3>
+            <p>
+                HTML DOM é principal modelo a ser analizado aqui.
+                <br/>Ele é a estrutura de objeto e camada de interface necessária para programação.
+                <br/>O HTML DOM define todo elemento HTML (tags) como um objeto.
+                <br/>A nomeclatura de um HTML DOM é a seguinte.
+            </p>
+            <ul>
+                <li>Todo estado HTML é um evento (event).</li>
+                <li>Todo acesso HTML é um método (method).</li>
+                <dd>Todo método no HTML DOM é uma ação a qual pode ser executada em um elemento HTML.</dd>
+                <li>Todo atributo HTML é uma propriedade (properties).</li>
+                <dd>Toda propriedade no HTML DOM é um valor o qual pode ser atribuido o modificado em um elemento HTML.</dd>
+            </ul>
+        </article>
+        <article>
+            <h2 class="Titulo">A leitura do HTML DOM</h2>
+            <p>
+                Em um documento HTML DOM há centenas de objetos, além daquele que são elementos HTML.
+                <br/>Existe uma lista com todos os comandos possíves de executar e capturar a informação deles.
+                <br/>A lista completa se encontra aqui: <a href="https://www.w3schools.com/jsref/dom_obj_document.asp">Lista completa por W3Schools</a>
+                <br/>Segue destacado algum desses objetos:
+            </p>
+            <ul>
+                <li>document.getElementByTagName("identificador");</li>
+                <dd>Busca e captura todo elemento com tag HTML solicitada.</dd>
+                <dd>Por ele capturar todo elemento com tal tag, ele retorna uma coleção. É semelhante a um vetor/matriz, no entanto mais limitado.</dd>
+                <li>document.getElementByClassName("identificador");</li>
+                <dd>Busca e captura todo elemento com a classe solicitada.</dd>
+                <dd>Por ele capturar todo elemento com tal classe, ele retorna uma coleção.  É semelhante a um vetor/matriz, no entanto mais limitado.</dd>
+                <li>document.getElementById("identificador");</li>
+                <dd>Busca e captura um único elemento com a id solicitada.</dd>
+                <li>document.querySelectorAll("identificador");</li>
+                <dd>Busca e captura todo elemento com o seletor CSS solicitada.</dd>
+                <dd>Incluí todo tipo, como: id, classes, atributo, psudo-class, etc</dd>
+                <dd>Por ele capturar todo elemento com tal classe, ele retorna uma coleção.  É semelhante a um vetor/matriz, no entanto mais limitado.</dd>
+                <dd>[ANOTAÇÃO] Sim, isso é um método que também pode selecionar classes, mas não está limitado a somente isso.</dd>
+            </ul>
+            <p>
+                Lembrando que isso já são os comandos em Javascript! E podem ser manipulados como qualquer variável, matriz ou método dado o contexto.
+            </p>
+            <div id="ContainerExemplo_1"></div>
+            <script>
+                var doc_METACursor;
+                
+                function capturarTagName(nome){
+                    let i = 0;
+                    doc_METACursor = document.getElementsByTagName(nome);
+                    //console.log(doc_METACursor[i]);
+                    //document.getElementById("ContainerExemplo_1").innerHTML = doc_METACursor[i].innerHTML;
+                    document.getElementById("ContainerExemplo_1").innerHTML += "<p>Há (li) tags nesse documento: " + doc_METACursor.length + "<br/>";
+                    do{
+                        console.log(doc_METACursor[i]);
+                        document.getElementById("ContainerExemplo_1").innerHTML += doc_METACursor[i].innerHTML + "<br/>";
+                        i++
+                    }while(i < doc_METACursor.length && i > 0);
+                    document.getElementById("ContainerExemplo_1").innerHTML += "</p>"
+                }
+
+                function capturarClassName(nome){
+                    let i = 0;
+                    doc_METACursor = document.getElementsByClassName(nome);
+                    //console.log(doc_METACursor[i]);
+                    //document.getElementById("ContainerExemplo_1").innerHTML = doc_METACursor[i].innerHTML;
+                    document.getElementById("ContainerExemplo_1").innerHTML += "<p>Há " + doc_METACursor.length + " elementos com a classe '" + nome +"'<br/>";
+                    do{
+                        console.log(doc_METACursor[i]);
+                        document.getElementById("ContainerExemplo_1").innerHTML += doc_METACursor[i].innerHTML + "<br/>";
+                        i++
+                    }while(i < doc_METACursor.length && i > 0);
+                    document.getElementById("ContainerExemplo_1").innerHTML += "</p>"
+                }
+
+                function capturarId(nome){
+                    let i = 0;
+                    doc_METACursor = document.getElementById(nome);
+                    /* !!!Isso não funciona!!!
+                    console.log(doc_METACursor[i]);
+                    document.getElementById("ContainerExemplo_1").innerHTML = doc_METACursor[i].innerHTML;
+                    */
+                    console.log(doc_METACursor);
+                    document.getElementById("ContainerExemplo_1").innerHTML += "<br/>Temos o seguinte elemento id(" + nome + "):<br/>" + doc_METACursor.innerHTML;
+                }
+
+            </script>
+            <button type="button" onclick="capturarTagName('li')">Retorne todos com tag (li)!</button>
+            <button type="button" onclick="capturarClassName('Titulo')">Retorne todos com a classe "Titulo"</button>
+            <button type="button" onclick="capturarId('ContainerExemplo_1')">Retorne todos com o id "ContainerExemplo_1"</button>
+        </article>
+        <article>
+            <h2 class="Titulo">A modificação do HTML DOM</h2>
+            <p>
+                Por o DOM ser estruturado como um árvore, o método de modificação direta nela será através dos nodos.
+                <br/>É sempre necessário a criação do nodo primeiro, depois alocar ele na posição desejada.
+                <br/>Segue as funções mais comuns de manipulação do HTML DOM:
+            </p>
+            <ul>
+                <li>document.createElement("HTML Tag")</li>
+                <dd>Cria um elemento HTML.</dd>
+                <dd>[ANOTAÇÃO] Ele cria o inicio e fim de um elemento HTML (tag de inicio e fim)</dd>
+                <li>document.appendChild(element)</li>
+                <dd>Acrescenta um elemento HTML.</dd>
+                <dd>[ANOTAÇÃO] Existe métodos para especificar onde o elemento deve ser acrescentado.</dd>
+                <li>document.removeChild(element)</li>
+                <dd>Remove um elemento HTML.</dd>
+                <dd>[ANOTAÇÃO] Existe métodos para especificar qual elemento deve ser removido.</dd>
+                <li>document.replaceChild(element new, element old)</li>
+                <dd>Substituí um elemento HTML por outro.</dd>
+                <li>document.write("String")</li>
+                <dd>Escreve no fluxo HTML próprio.</dd>
+            </ul>
+            <h3>Exemplo:</h3>
+            <div id="ContainerExemplo_2">
+                <script>
+                    document.write("<h4> [Aqui está o espaço do exemplo] </h4>");
+                </script>
+            </div>
+            <script>
+                
+                function adicionarElemento(name){
+                    const nodo = document.createElement(name);
+                    nodo.innerText = "Isso foi criado por Javascript."
+                    document.getElementById('ContainerExemplo_2').appendChild(nodo);
+                }
+                function removeElemento(){
+                    const nodo = document.getElementById('ContainerExemplo_2');
+                    nodo.removeChild(nodo.firstElementChild);
+                }
+            </script>
+            <button type="button" onclick="adicionarElemento('h5')">Acrescente um (h5)</button>
+            <button type="button" onclick="removeElemento()">Remova o primeiro elemento!</button>
+        </article>
+        <article>
+            <h2>Você vai precisar de uma lista.</h2>
+            <p>
+                Há muitas possibilidade do que pode ser feito. Por isso tome a lista para achar o comando que você procura para seu objetivo atual:
+                <br/><a href="https://www.w3schools.com/jsref/default.asp">Referência por W3Schools</a>
+            </p>
+        </article>
+    </main>
+    <hr/>
+    <h4 style="text-align: center;">Criado por: Roan Nunes</h4>
+    <footer style="display: flex;">
+        <ul style="width: 30%;">
+            <li><a href="/AWD_Aulas_HTML/Aula_1_BaseDeTudo.html">Aula 1 - Base de Tudo</a></li>
+            <li><a href="/AWD_Aulas_HTML/Aula_2_HeadersEParagrafos.html">Aula 2 - Headers e Parágrafos</a></li>
+            <li><a href="/AWD_Aulas_HTML/Aula_3_ListasETabelas.html">Aula 3 - Listas e Tabelas</a></li>
+            <li><a href="/AWD_Aulas_HTML/Aula_4_HyperlinkEImagens.html">Aula 4 - Hyperlink e Imagens</a></li>
+            <li><a href="/AWD_Aulas_HTML/Aula_5_MetadataEImports.html">Aula 5 - Metadata e Imports</a></li>
+            <li><a href="/AWD_Aulas_HTML/Aula_6_Forms.html">Aula 6 - Forms ou Formulários</a></li>
+        </ul>
+        <ul style="width: 30%;">
+            <li><a href="/AWD_Aulas_CSS/Aula_1_ConsideracoesIniciais.html">Aula 1 - Considerações Iniciais</a></li>
+            <li><a href="/AWD_Aulas_CSS/Aula_2_SeletoresEPseudos.html">Aula 2 - SeletoresEPseudos</a></li>
+            <li><a href="/AWD_Aulas_CSS/Aula_3_DivsEDisplays.html">Aula 3 - Div(s) e Displays</a></li>
+            <li><a href="/AWD_Aulas_CSS/Aula_4_GridEBoxs.html">Aula 4 - Grid e Boxs</a></li>
+            <li><a href="/AWD_Aulas_CSS/Aula_5_ResponsividadeEUnidades.html">Aula 5 - Responsividade e Unidades</a></li>
+            <li><a href="/AWD_Aulas_CSS/Aula_6_VariaveisEAnimacoes.html">Aula 6 - Variáveis e Animações</a></li>
+        </ul>
+        <ul style="width: 30%;">
+            <li><a href="/AWD_Aulas_JAVASCRIPT/Aula_1_LiveJavaEcmaScript.html">Aula 1 - Live/Java/EcmaScript</a></li>
+            <li><a href="/AWD_Aulas_JAVASCRIPT/Aula_2_SintaxeEEstrutura.html">Aula 2 - Sintaxe E Estrutura</a></li>
+            <li><a href="/AWD_Aulas_JAVASCRIPT/Aula_3_VariaveisEFuncoes.html">Aula 3 - Variaveis e Funções</a></li>
+            <li><a href="/AWD_Aulas_JAVASCRIPT/Aula_4_ObjetosEEventos.html">Aula 4 - Objetos e Eventos</a></li>
+            <li><a href="/AWD_Aulas_JAVASCRIPT/Aula_5_DOM.html">Aula 5 - The DOM</a></li>
+            <li><a href="/AWD_Aulas_JAVASCRIPT/Aula_6_BoasPraticas.html">Aula 6 - Boas Praticas</a></li>
+        </ul>
+    </footer>
+</body>
+</html>

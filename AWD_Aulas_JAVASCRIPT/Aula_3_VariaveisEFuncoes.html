@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" media="screen" href="Aula_Javascript_Style_Base.css">
+    <title>Aula 3 - Variaveis e Funções</title>
+</head>
+<body>
+    <header>
+        <h1>Variaveis e Funções</h1>
+        <p>
+            A base de uso uma linguagem de programação se consiste em saber como e onde utilizar variáveis e funções.
+            <br/>Toda variável deve ser declarada pelo desenvolvedor em seu código antes de seu uso.
+            <br/>Há funções presente em Javascript, no entanto elas são descritas por keywords ou palavras chaves.
+            <br/>Toda função criada pelo desenvolvedor deve ser declarada, determinar a necessidade de argumentos ou quem são eles e bloco de instruções que vão ser executados.
+            <br/>É fundamental ver o código fonte das aulas a seguir para ver os scripts em ação. Quando possível ele será descrito.
+        </p>
+    </header>
+    <hr/>
+    <main>
+        <article>
+            <section>
+                <h2>Variáveis (ou variables)</h2>
+                <p>
+                    Variáveis são espaços na memória declarados a armazenar algum dado.
+                    <br>Em Javascript podemos declarar variáveis de três métodos:
+                </p>
+                <ul>
+                    <li>var - Usada desde 1995, declara toda e qualquer variável;</li>
+                    <li>let - Usada desde 2015, declara toda e qualquer variável;</li>
+                    <li>const - Usada desde 2015, declara toda e qualquer variável a qual não é possível alterar, por isso "constante";</li>
+                </ul>
+                <p>
+                    Qualquer método pode usado para declarar uma variável.
+                    <br>Entre 'var' e 'let', recomenda-se 'let' mas nada impede de usar 'var';
+                    <br>Entre 'var' e 'const', recomenda-se 'const' mas nada impede de usar 'var'. No entanto, quando o contexto é para declarar uma constante imutável, utilize a declaração 'const'.
+                    <br/>A declaração 'var' não possui limitação, designação ou tipo que precisa ser definido para sua utilização.
+                    <br/>Variáveis podem ser definidas em sua declaração ou indefinidadas (exceto 'const').
+                    <br/>Em uma declaração é possível declarar (e definir) multiplas variáveis, sendo separadas por (,) virgula.
+                    <br/>Uma variável pode assumir qualquer tipo de dado permitido pelo Javascript, não havendo a necessidade declarar o tipo dela.
+                    <br/>Segue alguns exemplos:
+                </p>
+                <ul>
+                    <li>'var nome = "Ronaldo";'</li>
+                    <li>'var nomeRequesitado;'</li>
+                    <li>'let preco = 12,99;'</li>
+                    <li>'let valorBase = 9,99, valorGoiaba = 21,99, valorBanana = 14,99 , valorAbacaxi = 100;'</li>
+                </ul>
+                <p>
+                    Variáveis tem ou o escopo global, ou escopo local.
+                    <li>Variável global - Se permanecem vivas até o momento que a página é descartada (exemplo: quando fecha o navegador ou muda de página);</li>
+                    <li>Variável local - Se permanecem vivas enquanto a função estive em execução. Quando finalizada a variável deixa de existir;</li>
+                    Por boa prática, recomenda-se:
+                </p>
+                <ul>
+                    <li>De o nome a variáveis. Tais nomes devem ser lógicos ao propósito dela.</li>
+                    <li>Não use keywords como nome de variáveis.</li>
+                    <li>Não comece o nome de variáveis com números.</li>
+                    <li>Não use espaços ao nomear variáveis.</li>
+                    <li>Recomendação os modelos de nomes: 'minhaVariavelPreferedia' ou 'minha_variavel_preferida'</li>
+                </ul>
+            </section>
+            <section>
+                <!-- Exemplo 1 - Função mostrar retorno -->
+                <h3>Exemplo 1</h3>
+                <div id="ContainerExemplo-1"></div>
+                <button type="button" onclick="nome = prompt('Digite seu nome');">Me fale seu nome!</button>
+                <button type="button" onclick="console.log(nome)">Resultado (no console)</button>
+                <button type="button" onclick="document.getElementById('ContainerExemplo-1').innerHTML = '<h3>' + nome + '</h3>'">Resultado (na página)</button>
+                <button type="button" onclick="alert('Seu nome: ' + nome)">Resultado (no alerta)</button>
+                <!-- Exemplo 2 - Função troca de posição de dado -->
+                <h3>Exemplo 2</h3>
+                <p>(por motivos didáticos, a execução é feita por botões (que são funções, você vai entender))</p>
+                <div id="ContainerExemplo-2"></div>
+                <script>
+                    let a, b, c;
+                    a = 3;
+                    b = 8;
+                    c = 0;
+
+                    function imprimirVariaveis(){
+                        document.getElementById("ContainerExemplo-2").innerHTML += 
+                        "<ul>"
+                        + "<li>Valor de A: " + a + "</li>"
+                        + "<li>Valor de B: " + b + "</li>"
+                        + "<li>Valor de C: " + c + "</li>" 
+                        + "</ul>";
+                    }
+                    function trocarVariaveis(){
+                        c = a;
+                        a = b;
+                        b = c;
+                    }
+                </script>
+                <button type="button" onclick="imprimirVariaveis();">Imprimir Variáveis</button>
+                <button type="button" onclick="trocarVariaveis();">Trocar Variáveis</button>
+                <!-- Exemplo 3 - Função contagem de letras -->
+                <h3>Exemplo 3</h3>
+                <p>(Olhe o código fonte!)</p>
+                <div id="ContainerExemplo-3"></div>
+                <script>
+                    mensagem = "É seu dia especial!";
+                    nome = "Hostepivaldo";
+                    document.getElementById('ContainerExemplo-3').innerHTML = "Bem vindo, " + nome + "<br/>" + mensagem;
+                </script>
+                <button type="button" onclick="alert(nome + ' - Total = ' + nome.length)">Número de letras do nome</button>
+        </article>
+        <article>
+            <section>
+                <h2>Funções ou (functions)</h2>
+                <p>
+                    Funções, são blocos de instruções declarados pela keyword 'function' os quais podem ser usados em meio o script ou em meio o arquivo html.
+                    <br/>Funções tem objetivo de permitir a reutilização de código (ou instruções) em meio ao programa.
+                    <br/>A sintaxe de uma função é a seguinte:
+                    <br/>
+                    <code>
+                        <mark>
+                            function name(parameter1, parameter2, parameter3) {
+                                // code to be executed
+                              }
+                        </mark>
+                    </code>
+                    <br/>Dentro de uma função, é possível criar variáveis locais as quais só podem ser usadas enquanto a função se executa.
+                </p>
+            </section>
+            <section>
+                <!-- Exemplo 4 - Função trocar posição dado com variável local -->
+                <h3>Exemplo 4</h3>
+                <p>(por motivos didáticos, a execução é feita por botões (que são funções, você vai entender))</p>
+                <div id="ContainerExemplo-4"></div>
+                <script>
+                    let d, e;
+                    d = 12;
+                    e = 2563;
+
+                    function imprimirVariaveis(){
+                        document.getElementById("ContainerExemplo-4").innerHTML += 
+                        "<ul>"
+                        + "<li>Valor de D: " + d + "</li>"
+                        + "<li>Valor de E: " + e + "</li>"
+                        + "</ul>";
+                    }
+                    function trocarVariaveis(){
+                        var local = d;
+                        d = e;
+                        e = local;
+                    }
+                </script>
+                <button type="button" onclick="imprimirVariaveis();">Imprimir Variáveis</button>
+                <button type="button" onclick="trocarVariaveis();">Trocar Variáveis</button>
+                <h3>Exemplo 5</h3>
+                <p>(Olhe o código fonte!)</p>
+                <div id="ContainerExemplo-5"></div>
+                <script>
+                    var totalCaracteres = 128;
+                    var mensagem = "Essa é a mensagem mais complexa que alguém já viu no mundo.";
+                    document.getElementById('ContainerExemplo-5').innerHTML = 
+                        "<mark>"
+                        + mensagem 
+                        + "<br/>" + ((totalCaracteres)-(mensagem.length)) + " Caracteres restantes..."
+                        + "<br/>" + mensagem.length + "/" + totalCaracteres
+                        + "</mark>" ;
+                    
+                    function imprimirMensagem_EX5(){
+                        document.getElementById('ContainerExemplo-5').innerHTML = 
+                            "<mark>"
+                            + mensagem 
+                            + "<br/>" + ((totalCaracteres)-(mensagem.length)) + " Caracteres restantes..."
+                            + "<br/>" + mensagem.length + "/" + totalCaracteres
+                            + "</mark>" ;
+                    }
+                </script>
+                <button type="button" onclick="mensagem = prompt('Digite sua mensagem!')">Digite sua própria mensagem!</button>
+                <button type="button" onclick="imprimirMensagem_EX5();">Imprima sua própria mensagem!</button>
+                <h3>Exemplo 5.2</h3>
+                <p>(Olhe o código fonte!)</p>
+                <div id="ContainerExemplo-5_2"></div>
+                <script>
+                    var totalCaracteres = 128;
+                    var mensagem = "Essa é a mensagem mais complexa que alguém já viu no mundo.";
+                    document.getElementById('ContainerExemplo-5_2').innerHTML = 
+                        "<mark>"
+                        + "<strong>" + (mensagem.slice(0,16).toUpperCase()) + "...</strong>"
+                        + "<br/>" +  mensagem 
+                        + "<br/>" + ((totalCaracteres)-(mensagem.length)) + " Caracteres restantes..."
+                        + "<br/>" + mensagem.length + "/" + totalCaracteres
+                        + "</mark>" ;
+                    
+                    function imprimirMensagem_EX5_2(){
+                        document.getElementById('ContainerExemplo-5_2').innerHTML = 
+                        "<mark>"
+                        + "<strong>" + (mensagem.slice(0,16)) + "...</strong>"
+                        + "<br/>" +  mensagem 
+                        + "<br/>" + ((totalCaracteres)-(mensagem.length)) + " Caracteres restantes..."
+                        + "<br/>" + mensagem.length + "/" + totalCaracteres
+                        + "</mark>" ;
+                    }
+                </script>
+                <button type="button" onclick="mensagem = prompt('Digite sua mensagem!')">Digite sua própria mensagem!</button>
+                <button type="button" onclick="imprimirMensagem_EX5_2();">Imprima sua própria mensagem!</button>
+            </section>
+        </article>
+    </main>
+    <hr/>
+    <h4 style="text-align: center;">Criado por: Roan Nunes</h4>
+    <footer style="display: flex;">
+        <ul style="width: 30%;">
+            <li><a href="/AWD_Aulas_HTML/Aula_1_BaseDeTudo.html">Aula 1 - Base de Tudo</a></li>
+            <li><a href="/AWD_Aulas_HTML/Aula_2_HeadersEParagrafos.html">Aula 2 - Headers e Parágrafos</a></li>
+            <li><a href="/AWD_Aulas_HTML/Aula_3_ListasETabelas.html">Aula 3 - Listas e Tabelas</a></li>
+            <li><a href="/AWD_Aulas_HTML/Aula_4_HyperlinkEImagens.html">Aula 4 - Hyperlink e Imagens</a></li>
+            <li><a href="/AWD_Aulas_HTML/Aula_5_MetadataEImports.html">Aula 5 - Metadata e Imports</a></li>
+            <li><a href="/AWD_Aulas_HTML/Aula_6_Forms.html">Aula 6 - Forms ou Formulários</a></li>
+        </ul>
+        <ul style="width: 30%;">
+            <li><a href="/AWD_Aulas_CSS/Aula_1_ConsideracoesIniciais.html">Aula 1 - Considerações Iniciais</a></li>
+            <li><a href="/AWD_Aulas_CSS/Aula_2_SeletoresEPseudos.html">Aula 2 - SeletoresEPseudos</a></li>
+            <li><a href="/AWD_Aulas_CSS/Aula_3_DivsEDisplays.html">Aula 3 - Div(s) e Displays</a></li>
+            <li><a href="/AWD_Aulas_CSS/Aula_4_GridEBoxs.html">Aula 4 - Grid e Boxs</a></li>
+            <li><a href="/AWD_Aulas_CSS/Aula_5_ResponsividadeEUnidades.html">Aula 5 - Responsividade e Unidades</a></li>
+            <li><a href="/AWD_Aulas_CSS/Aula_6_VariaveisEAnimacoes.html">Aula 6 - Variáveis e Animações</a></li>
+        </ul>
+        <ul style="width: 30%;">
+            <li><a href="/AWD_Aulas_JAVASCRIPT/Aula_1_LiveJavaEcmaScript.html">Aula 1 - Live/Java/EcmaScript</a></li>
+            <li><a href="/AWD_Aulas_JAVASCRIPT/Aula_2_SintaxeEEstrutura.html">Aula 2 - Sintaxe E Estrutura</a></li>
+            <li><a href="/AWD_Aulas_JAVASCRIPT/Aula_3_VariaveisEFuncoes.html">Aula 3 - Variaveis e Funções</a></li>
+            <li><a href="/AWD_Aulas_JAVASCRIPT/Aula_4_ObjetosEEventos.html">Aula 4 - Objetos e Eventos</a></li>
+            <li><a href="/AWD_Aulas_JAVASCRIPT/Aula_5_DOM.html">Aula 5 - The DOM</a></li>
+            <li><a href="/AWD_Aulas_JAVASCRIPT/Aula_6_BoasPraticas.html">Aula 6 - Boas Praticas</a></li>
+        </ul>
+    </footer>
+</body>
+</html>

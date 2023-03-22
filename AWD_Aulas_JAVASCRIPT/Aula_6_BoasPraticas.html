@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" media="screen" href="Aula_Javascript_Style_Base.css">
+    <title>Aula 6 - Boas Práticas</title>
+</head>
+<body>
+    <header>
+        <h1 class="Titulo">Boas Práticas</h1>
+        <p>
+            Como toda linguagem de programação, um código limpo, lógico e bem estruturado ajuda seu desenvolvimento e em um time.
+            <br/>Javascript possui algumas peculariedades durante seu desenvolvimento e serão destacados alguns a seguir:
+        </p>
+    </header>
+    <hr/>
+    <main>
+        <article>
+            <h2>Evite globais!</h2>
+            <p>
+                Toda variável, função, objeto ou qualquer aspecto de código possui um escopo de atuação.
+                <br/>Evite a declaração no escopo global, pois podem ocorrer de serem sobreescritas.
+                <br/>Métodos para evitar o uso do escopo global: 
+            </p>
+            <ul>
+                <li>Criação de classes com construtores, variáveis locais e funções locais.</li>
+                <li>A utilização da capacidade de 'Closures' de Javascript.</li>
+            </ul>
+            <section>
+                <h3>Criação de classes</h3>
+                <p>
+                    Classes não são objetos. Classes são templates para objetos.
+                    <br/> São blocos que encapsulão dados e funções que trabalham com esses dados.
+                    <br/> São "funções especiais" os quais possuem propriedades próprias. Segue o exemplo:
+                </p>
+                <pre>
+                    <code>
+                        class Retangulo {
+                            //Construtores
+                            constructor(name, alturaTemp, comprimentoTemp){
+                                this.name = name;
+                                this.altura = alturaTemp;
+                                this.comprimento = comprimentoTemp;
+                            }
+    
+                            //Metodos
+                            retornaAltura(){
+                                return this.altura;
+                            }
+                            retornaComprimento(){
+                                return this.Comprimento;
+                            }
+                        }
+                    </code>
+                </pre>
+                <p>
+                    Entenda que por isso é um template, é possível criar objetos da classe 'Retangulo'.
+                    <br/>Nesse template também é possível criar funções dedicadas a esse objeto criado.
+                    <br/>A ideia de classes é semelhante ao de JAVA, mas a semelhança termina na ideia.
+                    <br/>Só pode haver um único construtor por classe, podendo haver vários metodos.
+                    <br/>É possível definir escopo, quem é capaz de ler, capturar, modificar, executar em classes.
+                    <br/>Classes é um assunto extenso, poderoso e pode ser lido sobre nos seguintes links:
+                </p>
+                <ul>
+                    <li><a href="https://www.w3schools.com/js/js_classes.asp">JS Classes por W3Schools</a></li>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes">JS Classes por MDN</a></li>
+                </ul>
+                <div id="ContainerExemplo_Class"></div>
+                <script>
+                    class Retangulo {
+                        //Construtores
+                        constructor(name, altura, comprimento){
+                            this.name = name;
+                            this.altura = altura;
+                            this.comprimento = comprimento;
+                        }
+
+                        //Metodos
+                        retornaAltura(){
+                            return this.altura;
+                        }
+                        retornaComprimento(){
+                            return this.comprimento;
+                        }
+                    }
+
+                    const Geo_1 = new Retangulo("Vosvalgo", 13, 51);
+                    const Geo_2 = new Retangulo("Tenz", 99, 21);
+                    const Geo_3 = new Retangulo("Tivika", 64, 32);
+
+                    function showClass(){
+                        const nodo = document.getElementById('ContainerExemplo_Class');
+                        console.log(Geo_1);
+                        nodo.innerHTML += "<br/>Nome: " + Geo_1.name + "<br/>Altura: " + Geo_1.retornaAltura() + " Comprimento: " + Geo_1.retornaComprimento();
+                        console.log(Geo_2);
+                        nodo.innerHTML += "<br/>Nome: " + Geo_2.name + "<br/>Altura: " + Geo_2.retornaAltura() + " Comprimento: " + Geo_2.retornaComprimento();
+                        console.log(Geo_3);
+                        nodo.innerHTML += "<br/>Nome: " + Geo_3.name + "<br/>Altura: " + Geo_3.retornaAltura() + " Comprimento: " + Geo_3.retornaComprimento();
+                    }
+                </script>
+                <button type="button" onclick="showClass()">Mostrar Objetos da class!</button>
+            </section>
+            <section>
+                <h3>Utilização de 'Closures'</h3>
+                <p>
+                    Closure teoricamente é algo complexo por isso segue a definição dada pelo MDN:
+                    <br/>"Uma closure é a combinação de uma função com as referências ao estado que a circunda (o ambiente léxico). Em outras palavras, uma closure lhe dá acesso ao escopo de uma função externa a partir de uma função interna. Em JavaScript, as closures são criadas toda vez que uma função é criada, no momento da criação da função."
+                    <br/>- MDN 2023
+                    <br/>O objetivo de uma 'closure' é de criar um dado ou um conjunto de dados de uma função, a qual só pode ser acessada por aquela função, e persiste mesmo após a execução da função.
+                    <br/>Ela cria a variáveis locais <b>privadas</b> persistentes. Loucura, eu sei.
+                    <br/>A seguir está um exemplo de como criar uma closure:
+                </p>
+                <pre>
+                    <code>
+                        const add = (function () {
+                            let counter = 0;
+                            return function () {counter += 1; return counter}
+                        })();
+                    </code>
+                </pre>
+                <p>
+                    Perceba que:
+                </p>
+                <ol>
+                    <li>É criado uma variavel (const 'add');</li>
+                    <li>Esta variável assume o tipo de dado de função;</li>
+                    <li>Tal 1° função tem o bloco de instruções específico, incluindo a criação de uma variável local;</li>
+                    <li>Tal 1° função é designado o retorno de uma função outra função (2°);</li>
+                    <li>Tal 2° função tem um bloco de instruções que manipula a variável de escopo local;</li>
+                    <li>Tal 2° função é designado o retorno da variável local;</li>
+                </ol>
+                <script>
+                    const add = (function () {
+                            let counter = 0;
+                            return function () {counter += 1; return counter}
+                        })();
+                    
+                    function demoClosure(){
+                        document.getElementById("ContainerExemplo_Closure").innerHTML = add();
+                    }
+                    function demoClosureLog(){
+                        //Nenhuma das funções funciona, pois 'counter' é uma variável local privada que só é vista pela função 'add()'. Pode testar cada uma individualmente se desejar.
+                        console.log(counter);            
+                        console.log(add.counter);
+                        console.log(add().counter);
+                    }
+                </script>
+                <div id="ContainerExemplo_Closure"></div>
+                <button type="button" onclick="demoClosure()">Demonstração de uma closure</button>
+                <button type="button" onclick="demoClosureLog()">Console log que dá erro</button>
+                <p>
+                    Isso teoricamente é complexo, há muitas coisas ocorrendo por trás dos panos. Todavia, na prática é uma variavel local privada que é criadas desta forma.
+                    <br/>Caso queira ler mais sobre o funcionamento desse contexto: <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Closures">"Closures" por MDN</a>
+                </p>
+            </section>
+        </article>
+        <article>
+            <h2>Toda declaração/inicialização é feita no topo do código.</h2>
+            <p>
+                Toda variável, função, o qualquer outro artifício, declare ele no inicio do código.
+                <br/>Com declaração de toda variável, recomenda-se iniciar elas para definir o tipo de dado o qual elas irão assumir.
+                <br/>Exemplo:
+            </p>
+            <pre>
+                <code>
+                    //Declarações
+                    let firstName, lastName, price, discount, fullPrice;
+                    
+                    //Declaração com inicialização
+                    const myArray = [];
+                    const myObject = {};
+    
+                    //Inicialização
+                    firstName = "";
+                    lastName = "";
+                    price = 0;
+                    discount = 0;
+                    fullPrice = 0;
+                </code>
+            </pre>
+            <p>
+                Ao declarar variáveis, objetos, arrays e qualquer outro tipo, não use 'new Object()' ou 'new Boolean()' ou 'new Number()' ou qualquer outra função desse tipo.
+                <br/>Opte por inicializar variáveis e etc através da versão reduzida. Segue exemplo:
+            </p>
+            <pre>
+                <code>
+                    let x1 = "";             // nova string
+                    let x2 = 0;              // novo number
+                    let x3 = false;          // novo boolean
+                    const x4 = {};           // novo object
+                    const x5 = [];           // nova matriz object
+                    const x6 = /()/;         // nova regexp object
+                    const x7 = function(){}; // nova function object
+                </code>
+            </pre>
+        </article>
+        <article>
+            <h2>Ao criar Objetos ou Matrizes, use 'const'.</h2>
+            <p>
+                Ao criar Objetos em Javascript, use 'const' para que o objeto tenha chance de ser destruido ou substituido por um erro.
+                <br/>Por variáveis em Javascript não possuerem uma limitação por tipo de dado, um objeto pode acabar se tornando uma variavél comum durante sua manipulação.
+                <br/>O uso de 'const' ao declarar o objeto impede esse tipo de erro de manipulação.
+                <br/>Segue o exemplo:
+            </p>
+            <pre>
+                <code>
+                    //Método que pode dar erro!
+                    let car = {type:"Fiat", model:"500", color:"white"};
+                    car = "Fiat";      // Irá tornar o objeto numa variável do tipo 'string'.
+
+                    //Boa prática
+                    const car = {type:"Fiat", model:"500", color:"white"};
+                    car = "Fiat";      // Não será possível executar.
+                </code>
+            </pre>
+            <p>
+                O mesmo caso também pode acontecer ao criar e manipular matrizes/vetores (ou Arrays).
+                <br/>Segue o exemplo:
+            </p>
+            <pre>
+                <code>
+                    //Método que pode dar erro!
+                    let cars = ["Saab", "Volvo", "BMW"];
+                    cars = 3;    // Irá tornar a matriz numa variável 
+
+                    //Boa prática
+                    const cars = ["Saab", "Volvo", "BMW"];
+                    cars = 3;    // Não será possível executar.
+                </code>
+            </pre>
+        </article>
+        <article>
+            <h2>Cuidado a conversão automática de tipo!</h2>
+            <p>
+                O Javascript não possui delimitação de tipo de dado. Fique atento a isso.
+                <br/>Isso é uma característica do natural do Javascript/Livescript/ECMAscript.
+                <br/>Por isso surgiram frameworks os quais alguns possuem essa funcionalidade ou até mesmo novas linguagens, como o Typescript da Microsoft.
+                <br/>Caso queira enforçar para que um dado seja de um tipo específico, ele deverá ser tratado pelo Javacript através de funções próprias.
+            </p>
+        </article>
+        <article>
+            <h2>Em Javascript, considere fazer comparações com '==='</h2>
+            <p>
+                Em geral, evite comparações com variáveis de tipos de dados diferentes.
+                <br/>Todavia, pelo Javascript não possuir uma definição especifica de escopo de variáveis esse erro pode ocorrer ao acaso.
+                <br/>Por isso ao realizar comparações em Javascript, recomenda-se o uso de '===' três simbolos de igualdade.
+                <br/> O '===' ele realiza o teste de comparação de tipo de dado e o valor do dado. Ou seja, para ele comparar valores, eles necessáriamente precisão ser do mesmo tipo.
+            </p>
+        </article>
+        <article>
+            <h2>Evite acessos relativos na definição de um loop.</h2>
+            <p></p>
+        </article>
+        <article>
+            <h2>Minimize acessos ao HTML DOM.</h2>
+            <p>
+                Ao capturar qualquer elemento ou nodo presente no HTML DOM, atribua a ele a uma variável para evitar múltiplos pedidos de acesso ao DOM.
+                <br/>Acessos ao DOM são relativamente lentos, e quanto mais acessos mais lentidão à página.
+                <br/>Recomenda-se atribuir os valores capturados a uma variável e então manipular esta variável local.
+                <br/>Incluindo a isso, mantenha o tamanho do HTML DOM no mímino, mimizando a quantidade de elementos presentes nele.
+            </p>
+        </article>
+        <article>
+            <h2>Não crie variáveis desnecessárias.</h2>
+            <p>
+                Nem todo dado precisa necessáriamente de um espaço dedicado na memória, mesmo que seja uma variável local.
+                <br/>Dependendo do caso, é possível usar a combinação de variáveis para monstrar ou utilizar como uma pseudo variável.
+                <br/>Um bom conselho para esta boa prática seria: Toda informação que você possui, também pode informar aquela que não possui.
+            </p>
+        </article>
+        <article>
+            <h2>De preferência a módulos de Javascript!</h2>
+            <p>
+                Módulos são blocos de instruções que estão localizados em outros arquivos, geralmente '.js'.
+                <br/>Módulos só podem ser usados dentro de tags (script type='module').
+                <br/>Módulos são diferentes de utilizar a importação de todo arquivo '.js'.
+                <br/>Segue o exemplo de como utilizar eles:
+            </p>
+            <ol>
+                <li>Para utilizar um módulo, é necessário primeiro a criação de um arquivo distinto de Javascript, com a extensão '.js';</li>
+                <li>Feito isso, no arquivo '.js' deve ser definido o que será exportado (variáveis, funções, classes, etc);</li>
+                <li>Com o arquvio '.js' pronto, na página HTML, ao incluir a tag (script), é necessário que seja definido do tipo "module";</li>
+                <li>Definido o script, nele irá realizar a instrução de 'import', escolhendo o que importar e de onde;</li>
+            </ol>
+            <script type="module">
+                import { getPrimes, imprimirPrimo } from "./modulo_Test.js"
+                console.log(getPrimes(10));
+                imprimirPrimo(10);
+
+                var botaoJS = document.getElementById("BotaoJS");
+                //botaoJS.addEventListener("click", (evt) => imprimirPrimo(50));
+                botaoJS.addEventListener("click", imprimirPrimo.bind(this, 50));
+            </script>
+            <div id="ContainerExemplo_Modulo"></div>
+            <button type="button" onclick="imprimirPrimo(50)">Não é possível usar modulos com in line Handlers</button>
+            <button type="button" id="BotaoJS">Mas dá usando EventListener! Com diferenças!</button>
+            <p>
+                <strong>Vou repetir esse fato: (script type='module') é diferente de (script scr='modulo_Test.js');</strong>
+                <br/>(script type='module') - Importa apenas aquilo o que desejado e permitido pelo arquivo '.js'
+                <br/>(script scr='modulo_Test.js') - Importa todo arquivo, como se estivesse digitado pelo arquivo .html.
+            </p>
+        </article>
+        <article>
+            <h2>Todo Javascript ao final da página.</h2>
+            <p>
+                Caso haja necessidade de adicionar programação no arquivo HTML, que ele seja posicionado por inteiro no final do arquivo, após o body.
+                <br/>Isso é para permitir que a página por inteiro carregue, depois aplica todo o tratamento necessário de programação.
+                <br/>É uma boa prática orientada para performance/desempenho da página e evitar partes da página não carregar devido algum script errado.
+            </p>
+        </article>
+        <article>
+            <h2>Para tudo, crie tratamento de erros!</h2>
+            <p>
+                Toda aplicação tem seu destino na mão se usuários que usaram constantemente, provavelmente usando da maneira intensionada ou de maneiras que nem imagainava que era possível.
+                <br/>Enquanto cria funções, surgem casos possíveis o qual a função pode quebrar no meio do caminho ou pior, um falso positivo.
+                <br/>Esses casos podem ocorrer tanto por causa do usuário ou por interações entre funções.
+                <br/>Por isso, recomenda-se um tratamento dos casos que podem ocorrer durante o processo de execução, além do processo planejado.
+                <br/>Esses tratamento de erro podem se apresentar desde de um simples 'else' a um 'if', até o método oficial de 'try' e 'catch'.
+                <br/>Segue os seguintes exemplos:
+            </p>
+            <pre>
+                <code>
+                    function testarPar_simples (numero){
+                        if ((numero % 2) == 0){
+                            document.getElementById('ContainerExemplo_TratErro').innerHTML = "<br/>Resposta: " + "True";
+                            return true;
+                        }
+                        else{
+                            document.getElementById('ContainerExemplo_TratErro').innerHTML = "<br/>Resposta: " + "False";
+                            return false;
+                        }
+                    }
+
+                    //[OU]
+
+                    function testarPar_complexo (numero){
+                        let resp = undefined;
+                        //'try' é o bloco de instruções que irão ser analisados caso erro.
+                        try {
+                            if ((numero)%2 != 0){
+                                resp = false;
+                                console.log("[FUNCTION] [testarPar_complexo] Teste para falso - " + resp);
+                            }
+                            else{
+                                resp = true;
+                                console.log("[FUNCTION] [testarPar_complexo] Teste para true - " + resp);
+                            }
+                        }
+                        //'catch' é o bloco de instruções caso haja algum erro dentro do 'try'.
+                        catch(err){
+                            alert("[ERRO] Função testarPAr");
+                            console.log("[FUNCTION] [testarPar_complexo] [ERRO]" + resp);
+                            return undefined;
+                        }
+                        //'finally' é o bloco de instrução que irá ocorrer, independente da existência de erro ou não.
+                        finally{
+                            document.getElementById('ContainerExemplo_TratErro').innerHTML = "<br/>Resposta: " + resp;
+                            console.log("[FUNCTION] [testarPar_complexo] [FINNALLY]" + resp);
+                            return resp;
+                        }
+                    }
+                </code>
+            </pre>
+            <script>
+                function testarPar_simples (numero){
+                        if ((numero % 2) == 0){
+                            document.getElementById('ContainerExemplo_TratErro').innerHTML = "<br/>Caso: " + numero + "<br/>Resposta: True";
+                            return true;
+                        }
+                        else{
+                            document.getElementById('ContainerExemplo_TratErro').innerHTML = "<br/>Caso: " + numero + "<br/>Resposta: False";
+                            return false;
+                        }
+                    }
+
+                    //[OU]
+
+                    function testarPar_complexo (numero){
+                        let resp = undefined;
+                        //'try' é o bloco de instruções que irão ser analisados caso erro.
+                        try {
+                            if ((numero)%2 != 0){
+                                resp = false;
+                                console.log("[FUNCTION] [testarPar_complexo] Teste para falso - " + resp);
+                            }
+                            else{
+                                resp = true;
+                                console.log("[FUNCTION] [testarPar_complexo] Teste para true - " + resp);
+                            }
+                            if(numero == "") { throw "is a String"}
+                            if(numero == null) { throw "it's null" }
+                            if(numero == undefined) { throw "not a number" }
+                        }
+                        //'catch' é o bloco de instruções caso haja algum erro dentro do 'try'.
+                        catch(err){
+                            alert("[ERRO] [testarPar_complexo]" + err);
+                            console.log("[FUNCTION] [testarPar_complexo] [ERRO]" + resp);
+                            return undefined;
+                        }
+                        //'finally' é o bloco de instrução que irá ocorrer, independente da existência de erro ou não.
+                        finally{
+                            document.getElementById('ContainerExemplo_TratErro').innerHTML = "<br/>Caso: " + numero + "<br/>Resposta: " + resp;
+                            console.log("[FUNCTION] [testarPar_complexo] [FINNALLY]" + resp);
+                            return resp;
+                        }
+                    }
+            </script>
+            <div id="ContainerExemplo_TratErro"></div>
+            <button type="button" onclick="testarPar_simples(128)">Função testarParSimples</button>
+            <button type="button" onclick="testarPar_complexo(128)">Função testarParComplexo</button>
+            <button type="button" onclick="testarPar_simples('128')">Função testarParSimples com um 'número'</button>
+            <button type="button" onclick="testarPar_complexo('128')">Função testarParComplexo com um 'número'</button>
+            <button type="button" onclick="testarPar_simples('ola eu sou uma string')">Função testarParSimples com uma string</button>
+            <button type="button" onclick="testarPar_complexo('ola eu sou uma string')">Função testarParComplexo com uma string</button>
+            <button type="button" onclick="testarPar_simples(null)">Função testarParSimples com um null</button>
+            <button type="button" onclick="testarPar_complexo(null)">Função testarParComplexo com um null</button>
+            <p>
+                Para todo 'try' tem que haver um 'catch'.
+                <br/>Javascript já automaticamente realiza um breve tratamento de erro, ou termos corretos irá criar uma 'excepetion' (que é um erro).
+                <br/>A Keyword 'throw' que você determine erros especializados o qual será tratado pelo sistema de 'try' e 'catch'.
+                <br/>O 'finally' não é necessário para o sistema, no entanto, possui seus casos, como a entrega de um dado "prometido".
+                <br/>Dependendo do navegador, existe alguns erros que são tratados outros não.
+                <br/>Segue uma lista de referência de erros em potencial: <a href="https://www.w3schools.com/jsref/jsref_obj_error.asp">Erros por W3Schools</a>
+            </p>
+        </article>
+        <article>
+            <h2>'Undefined' é diferente de 'Null'</h2>
+            <p>
+                Em Javascript, "Undefined" é um valor diferente do que seria 'null'.
+                <br/>Resumindo, quando um valor dá "Undefined" não é sinônimo de o valor é "NULL".
+                <br/>Realize o tratamento cada um de acordo com valor distinto deles.
+            </p>
+        </article>
+        <article>
+            <h2>Termine toda intrução com (;) ponto e virgula.</h2>
+            <p>
+                Isso é um erro mais comum do que parece...
+            </p>
+        </article>
+    </main>
+    <hr/>
+    <h4 style="text-align: center;">Criado por: Roan Nunes</h4>
+    <footer style="display: flex;">
+        <ul style="width: 30%;">
+            <li><a href="/AWD_Aulas_HTML/Aula_1_BaseDeTudo.html">Aula 1 - Base de Tudo</a></li>
+            <li><a href="/AWD_Aulas_HTML/Aula_2_HeadersEParagrafos.html">Aula 2 - Headers e Parágrafos</a></li>
+            <li><a href="/AWD_Aulas_HTML/Aula_3_ListasETabelas.html">Aula 3 - Listas e Tabelas</a></li>
+            <li><a href="/AWD_Aulas_HTML/Aula_4_HyperlinkEImagens.html">Aula 4 - Hyperlink e Imagens</a></li>
+            <li><a href="/AWD_Aulas_HTML/Aula_5_MetadataEImports.html">Aula 5 - Metadata e Imports</a></li>
+            <li><a href="/AWD_Aulas_HTML/Aula_6_Forms.html">Aula 6 - Forms ou Formulários</a></li>
+        </ul>
+        <ul style="width: 30%;">
+            <li><a href="/AWD_Aulas_CSS/Aula_1_ConsideracoesIniciais.html">Aula 1 - Considerações Iniciais</a></li>
+            <li><a href="/AWD_Aulas_CSS/Aula_2_SeletoresEPseudos.html">Aula 2 - SeletoresEPseudos</a></li>
+            <li><a href="/AWD_Aulas_CSS/Aula_3_DivsEDisplays.html">Aula 3 - Div(s) e Displays</a></li>
+            <li><a href="/AWD_Aulas_CSS/Aula_4_GridEBoxs.html">Aula 4 - Grid e Boxs</a></li>
+            <li><a href="/AWD_Aulas_CSS/Aula_5_ResponsividadeEUnidades.html">Aula 5 - Responsividade e Unidades</a></li>
+            <li><a href="/AWD_Aulas_CSS/Aula_6_VariaveisEAnimacoes.html">Aula 6 - Variáveis e Animações</a></li>
+        </ul>
+        <ul style="width: 30%;">
+            <li><a href="/AWD_Aulas_JAVASCRIPT/Aula_1_LiveJavaEcmaScript.html">Aula 1 - Live/Java/EcmaScript</a></li>
+            <li><a href="/AWD_Aulas_JAVASCRIPT/Aula_2_SintaxeEEstrutura.html">Aula 2 - Sintaxe E Estrutura</a></li>
+            <li><a href="/AWD_Aulas_JAVASCRIPT/Aula_3_VariaveisEFuncoes.html">Aula 3 - Variaveis e Funções</a></li>
+            <li><a href="/AWD_Aulas_JAVASCRIPT/Aula_4_ObjetosEEventos.html">Aula 4 - Objetos e Eventos</a></li>
+            <li><a href="/AWD_Aulas_JAVASCRIPT/Aula_5_DOM.html">Aula 5 - The DOM</a></li>
+            <li><a href="/AWD_Aulas_JAVASCRIPT/Aula_6_BoasPraticas.html">Aula 6 - Boas Praticas</a></li>
+        </ul>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="meuscript.js"></script>
+    <link rel="stylesheet" media="screen" href="Aula_Javascript_Style_Base.css">
+    <title>Aula 1 - Live/Java/EcmaScript</title>
+</head>
+<body>
+    <header>
+        <h1>Javascipt!</h1>
+        <p>
+            Popularmente conhecido como "Javascript", originalmente conhecido como "Livescript" e oficialmente conhecido como "ECMAScript".
+            <br/>Javascript é a linguagem de programação a qual empodera as páginas e aplicações Web. Ela é uma linguagem de programação interpretada, diferente de C, C++, Java (e etc) que são linguagens compiladas.
+            <br/>Atualmente (2023), frameworks Javascript deixaram de ser somente voltados a front-end. É possível ver seu uso e frameworks dedicados a tarefas especializadas tanto no front-end quanto no back-end.
+            <br/>Aqui nós vamos passar a explorar o Javascript (ou ECMAScript) puro, de sua base à conhecimentos mais complexos.
+            <br/>Aqui a intenção será de apresentar uma base sólida para torna-ló independente ao pesquisar por mais conhecimento na área.
+            <br/>[AVISO] Por ser uma linguagem de programação, se torna impossível demonstrar e explicar cada interação e caso de uso que a linguagem permite executar.
+            <br/>[AVISO] Por ser uma linguagem de programação, recomendo a visualização do código fonte dos arquivos e a utilização das ferramentas de desenvolvedor no seu navegador (F12).
+            <br/>[AVISO] Para uma visualização mais didática, a maioria dos scripts criados seram executados a partir de botões. Caso haja um sendo executado automaticamente, será avisado.
+        </p>
+    </header>
+    <hr/>
+    <main>
+        <article>
+            <h2>Exemplo Clássico</h2>
+            <button type="button" onclick="alert('Olá mundo!')">
+                Hello World
+            </button>
+        </article>
+        <article>
+            <h2>Exemplo básico</h2>
+            <button type="button" onclick="document.getElementById('ContainerExemplo-1').innerHTML = Date()">
+                Me mostre o tempo!
+            </button>
+            <div id="ContainerExemplo-1"></div>
+        </article>
+        <article>
+            <h2>Métodos de declara-lo</h2>
+            <p>Temos os seguintes métodos: </p>
+            <ul>
+                <li>Usando a tag HTML (script) para declarar o campo de um script que irá ser executado em meio HTML.</li>
+                <dd>[EXEMPLO] "(script)Date();(/script)"</dd>
+                <li>Usando a tag HTML (script) com a propriedade 'src', declarando o arquivo (e o local dele) o qual possui o script e usar suas funções.</li>
+                <dd>[EXEMPLO] "(script src="meuscript.js")MinhaFuncao();(/script)"</dd>
+            </ul>
+        </article>
+    </main>
+    <hr/>
+    <h4 style="text-align: center;">Criado por: Roan Nunes</h4>
+    <footer style="display: flex;">
+        <ul style="width: 30%;">
+            <li><a href="/AWD_Aulas_HTML/Aula_1_BaseDeTudo.html">Aula 1 - Base de Tudo</a></li>
+            <li><a href="/AWD_Aulas_HTML/Aula_2_HeadersEParagrafos.html">Aula 2 - Headers e Parágrafos</a></li>
+            <li><a href="/AWD_Aulas_HTML/Aula_3_ListasETabelas.html">Aula 3 - Listas e Tabelas</a></li>
+            <li><a href="/AWD_Aulas_HTML/Aula_4_HyperlinkEImagens.html">Aula 4 - Hyperlink e Imagens</a></li>
+            <li><a href="/AWD_Aulas_HTML/Aula_5_MetadataEImports.html">Aula 5 - Metadata e Imports</a></li>
+            <li><a href="/AWD_Aulas_HTML/Aula_6_Forms.html">Aula 6 - Forms ou Formulários</a></li>
+        </ul>
+        <ul style="width: 30%;">
+            <li><a href="/AWD_Aulas_CSS/Aula_1_ConsideracoesIniciais.html">Aula 1 - Considerações Iniciais</a></li>
+            <li><a href="/AWD_Aulas_CSS/Aula_2_SeletoresEPseudos.html">Aula 2 - SeletoresEPseudos</a></li>
+            <li><a href="/AWD_Aulas_CSS/Aula_3_DivsEDisplays.html">Aula 3 - Div(s) e Displays</a></li>
+            <li><a href="/AWD_Aulas_CSS/Aula_4_GridEBoxs.html">Aula 4 - Grid e Boxs</a></li>
+            <li><a href="/AWD_Aulas_CSS/Aula_5_ResponsividadeEUnidades.html">Aula 5 - Responsividade e Unidades</a></li>
+            <li><a href="/AWD_Aulas_CSS/Aula_6_VariaveisEAnimacoes.html">Aula 6 - Variáveis e Animações</a></li>
+        </ul>
+        <ul style="width: 30%;">
+            <li><a href="/AWD_Aulas_JAVASCRIPT/Aula_1_LiveJavaEcmaScript.html">Aula 1 - Live/Java/EcmaScript</a></li>
+            <li><a href="/AWD_Aulas_JAVASCRIPT/Aula_2_SintaxeEEstrutura.html">Aula 2 - Sintaxe E Estrutura</a></li>
+            <li><a href="/AWD_Aulas_JAVASCRIPT/Aula_3_VariaveisEFuncoes.html">Aula 3 - Variaveis e Funções</a></li>
+            <li><a href="/AWD_Aulas_JAVASCRIPT/Aula_4_ObjetosEEventos.html">Aula 4 - Objetos e Eventos</a></li>
+            <li><a href="/AWD_Aulas_JAVASCRIPT/Aula_5_DOM.html">Aula 5 - The DOM</a></li>
+            <li><a href="/AWD_Aulas_JAVASCRIPT/Aula_6_BoasPraticas.html">Aula 6 - Boas Praticas</a></li>
+        </ul>
+    </footer>
+</body>
+</html>
